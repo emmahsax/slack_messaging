@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'gli'
+require_relative '../lib/slack_messaging'
+
+include GLI::App
+
+program_desc 'Slack Messaging'
+version SlackMessaging::VERSION
+
+wrap_help_text :verbatim
+
+flag [:config], :desc => 'SlackMessaging config file path', :default_value => SlackMessaging::DefaultPaths.config
+
+program_long_desc """
+DOCUMENTATION
+"""
+
+commands_from File.expand_path(File.dirname(__FILE__) + '/../lib/slack_messaging/commands')
+
+pre do |global,command,options,args|
+  SlackMessaging::Config.load(global[:config])
+  SlackMessaging::Config.set_config_options(global)
+  true
+end
+
+exit run(ARGV)
