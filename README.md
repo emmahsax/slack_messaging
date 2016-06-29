@@ -1,4 +1,4 @@
-# Slack Messaging [![Build Status](https://travis-ci.org/emmasax1/slack_messaging.svg?branch=master)](https://travis-ci.org/emmasax1/slack_messaging)
+# Slack Messaging [![Build Status](https://travis-ci.org/emmasax1/slack_messaging.svg?branch=master)](https://travis-ci.org/emmasax1/slack_messaging) [![Code Climate](https://codeclimate.com/github/emmasax1/slack_messaging/badges/gpa.svg)](https://codeclimate.com/github/emmasax1/slack_messaging)
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
@@ -53,7 +53,7 @@ I hope you enjoy printing fun and specialized messages to Slack!
 
 ### Tests
 
-To run the tests, run `rspec` from the command line. All tests should pass. There are currently only tests for the `notify_slack` and `random_message` classes. Feel free to help us add more!
+To run the tests, run `rspec` from the command line. Travis CI will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. There are currently only tests for the `notify_slack` and `random_message` classes. Feel free to help us add more!
 
 To contribute:
 
