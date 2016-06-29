@@ -4,10 +4,10 @@ module SlackMessaging
   class NotifySlack
     attr_accessor :text, :channel, :username, :icon_url, :icon_emoji
 
-    CHANNEL = SlackMessaging::Config.slack[:channel] || "#designed-for-talking"
+    CHANNEL = SlackMessaging::Config.slack[:channel]
     USERNAME = SlackMessaging::Config.slack[:username] || "MessageMe"
     WEBHOOK_URL = SlackMessaging::Config.slack[:webhook_url]
-    ICON_EMOJI = SlackMessaging::Config.slack[:icon_emoji] || ":mailbox_with_mail"
+    ICON_EMOJI = SlackMessaging::Config.slack[:icon_emoji] || ":mailbox_with_mail:"
 
     def initialize(text)
       self.text = text
