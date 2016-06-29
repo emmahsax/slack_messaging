@@ -20,6 +20,7 @@ module SlackMessaging
         "If you're not making mistakes, then you're not doing anything. I'm positive that a doer makes mistakes.\n--John Wooden",
         "The best way to deal with other people is to just let them be other people.\n--Anonymous",
         "Talk to yourself like you would to someone you love.\n--Brenee Brown",
+        "Don't let small minds convince you that your dreams are too big.\n--Anonymous",
       ]
 
     def initialize
