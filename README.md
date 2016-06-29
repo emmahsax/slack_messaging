@@ -45,6 +45,10 @@ You can even print multiple messages at once:
 bin/slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
 ```
 
+The output of slack_messaging will look something like this:
+
+<img src="https://github.com/emmasax1/slack_messaging/blob/master/OutputFile.png" width="1000">
+
 I hope you enjoy printing fun and specialized messages to Slack!
 
 ### Tests
