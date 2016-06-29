@@ -1,4 +1,4 @@
-# Slack Messaging
+# Slack Messaging [![Build Status](https://travis-ci.org/emmasax1/slack_messaging.svg?branch=master)](https://travis-ci.org/emmasax1/slack_messaging)
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
