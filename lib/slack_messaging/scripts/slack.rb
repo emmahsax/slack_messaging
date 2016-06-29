@@ -21,9 +21,8 @@ module SlackMessaging
       end
 
       def self.print_message(message)
-        puts message
         slack_job = NotifySlack.new(message)
-        # slack_job.perform
+        slack_job.perform
       end
     end
   end
