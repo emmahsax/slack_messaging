@@ -2,18 +2,14 @@ require 'slack-notifier'
 
 module SlackMessaging
   class NotifySlack
-    attr_accessor :text, :channel, :username, :icon_url, :icon_emoji
-
-    CHANNEL = SlackMessaging::Config.slack[:channel] || "#designed-for-talking"
-    USERNAME = SlackMessaging::Config.slack[:username] || "MessageMe"
-    WEBHOOK_URL = SlackMessaging::Config.slack[:webhook_url]
-    ICON_EMOJI = SlackMessaging::Config.slack[:icon_emoji] || ":mailbox_with_mail"
+    attr_accessor :text, :channel, :webhook_url, :username, :icon_url, :icon_emoji
 
     def initialize(text)
       self.text = text
-      self.channel = CHANNEL
-      self.username = USERNAME
-      self.icon_emoji = ICON_EMOJI
+      self.channel = SlackMessaging::Config.slack[:channel]
+      self.webhook_url = SlackMessaging::Config.slack[:webhook_url]
+      self.username = SlackMessaging::Config.slack[:username] || "MessageMe"
+      self.icon_emoji = SlackMessaging::Config.slack[:icon_emoji] || ":mailbox_with_mail"
     end
 
     def perform
