@@ -1,9 +1,9 @@
 require "slack_messaging"
 
 module SlackMessaging
-  describe NotifySlack do
+  describe RandomMessage do
     
-    it "should ping Slack" do
+    it "should get a message from an array" do
         
     end
     
