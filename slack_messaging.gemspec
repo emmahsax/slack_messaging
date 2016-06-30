@@ -6,8 +6,8 @@ require 'slack_messaging/version'
 Gem::Specification.new do |spec|
   spec.name          = "slack_messaging"
   spec.version       = SlackMessaging::VERSION
-  spec.authors       = ["Elliot Hursh"]
-  spec.email         = ["elliothursh@gmail.com"]
+  spec.authors       = ["Emma Sax"]
+  spec.email         = ["emma.sax4@gmail.com"]
   spec.summary       = %q{Slack Messaging}
   spec.license       = "MIT"
 
