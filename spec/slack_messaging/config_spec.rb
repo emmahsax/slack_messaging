@@ -1,15 +1,36 @@
+require 'spec_helper'
 require 'slack_messaging'
 
 module SlackMessaging
   describe Config do
-    context "Before loading a config file" do
-      it "unset config key methods should return nil" do
-        expect(SlackMessaging::Config.something).to eql(nil)
-      end
 
-      it "manually setting a key should create a corresponding method that returns the value" do
+    context "#set_config_options" do
+      it "should create a corresponding method that returns the value" do
         SlackMessaging::Config.set_config_options(test: "something")
         expect(SlackMessaging::Config.test).to eql("something")
+      end
+
+      it "setting a new key should return the entire config hash" do
+        items = SlackMessaging::Config.config.count
+        expect(SlackMessaging::Config.set_config_options(test1: "something_else").count).to eql(items + 1)
+        expect(SlackMessaging::Config.set_config_options(test2: "something else").count).to eql(items + 2)
+      end
+    end
+
+    context "#config_data" do
+      it "should be a private method" do
+        expect(SlackMessaging::Config).not_to respond_to(:config_data)
+      end
+    end
+
+    context "config key methods" do
+      it "should return nil when not set" do
+        expect(SlackMessaging::Config.doesnt_exist).to eql(nil)
+      end
+
+      it "should return the config value when set" do
+        SlackMessaging::Config.set_config_options(new_value: "testing")
+        expect(SlackMessaging::Config.new_value).to eql("testing")
       end
     end
 
