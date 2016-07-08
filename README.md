@@ -85,7 +85,7 @@ To make a new version and push to RubyGems:
 
 2. Update `lib/slack_messaging/version.rb` with the new version number
 
-4. Run `git add -A && git commit -m "Version Bump"`
+4. Run `git add -A && git commit -m "Version Bump" && git push`
 
 5. Run `gem build slack_messaging.gemspec && gem push *.gem`
 
