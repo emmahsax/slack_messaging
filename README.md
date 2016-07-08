@@ -2,16 +2,25 @@
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'slack_messaging'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install slack_messaging
+
 ### Usage
 
-First, run:
-
-```
-gem install bundler
-bundle install
-```
-
-Then, the project should be ready to go! However, it won't necessarily know where to print to Slack. So, this project requires a config file called `~/.slack_messaging.yml`. The config file should look like this:
+This project requires a config file that should look like this:
 
 ```
 slack:
@@ -21,9 +30,13 @@ slack:
   icon_emoji: ":[SOME EMOJI]:"
 ```
 
+The default is for the file to be named `~/.slack_messaging.yml`, but a different path can be passed in like this:
+
+    $ slack-messaging --config="/PATH/TO/FILE/config.yml" slack
+
 To obtain the webhook url, go to [this link](https://api.slack.com/incoming-webhooks).
 
-Okay, now the project will _actually_ be ready to rock and roll.
+Okay, now the project will be ready to rock and roll.
 
 To print a friendly message to Slack, run:
 
@@ -62,3 +75,12 @@ To contribute:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+### RubyGems
+To make a new version and push to RubyGems:
+1. Update the CHANGELOG.markdown with the new version and changes made
+3. Run `git add -A && git commit -m "Updating Changelog for [version number]"`
+2. Update `lib/slack_messaging/version.rb` with the new version number
+4. Run `git add -A && git commit -m "Version Bump"`
+5. Run `gem build slack_messaging.gemspec && gem push *.gem`
+6. Run `rm *.gem`
