@@ -8,7 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SlackMessaging::VERSION
   spec.authors       = ["Emma Sax"]
   spec.email         = ["emma.sax4@gmail.com"]
-  spec.summary       = %q{Slack Messaging}
+  spec.summary       = %q{Sending Personalized Slack Messages}
+  spec.homepage      = "https://github.com/emmasax1/slack_messaging"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -19,8 +20,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'hashie', '~> 3.3'
   spec.add_dependency 'gli', '~> 2.10'
   spec.add_dependency 'highline', '~> 1.6'
-  spec.add_dependency 'google_drive', '~> 1.0.0.pre2'
-  spec.add_dependency 'google-api-client', '~> 0.8.6'
   spec.add_dependency 'slack-notifier', '~> 1.5.1'
   spec.add_dependency 'rack', '~> 1.3.0'
   spec.add_dependency 'activesupport', '~> 3.2'
