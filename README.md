@@ -28,7 +28,7 @@ Okay, now the project will _actually_ be ready to rock and roll.
 To print a friendly message to Slack, run:
 
 ```
-bin/slack-messaging slack
+slack-messaging slack
 ```
 
 from the main directory. Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote, which are all defined in [`lib/slack_messaging/random_message.rb`](https://github.com/emmasax1/slack_messaging/blob/master/lib/slack_messaging/random_message.rb). Feel free to change the messages or add more to cater what you'd like slack_messaging to say.
@@ -36,13 +36,13 @@ from the main directory. Here, no specific message is being given to print to Sl
 However, what if you wanted to print something specific? Well, you can! Just run:
 
 ```
-bin/slack-messaging slack "MESSAGE 1"
+slack-messaging slack "MESSAGE 1"
 ```
 
 You can even print multiple messages at once:
 
 ```
-bin/slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
+slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
 ```
 
 The output of slack_messaging will look something like this:
