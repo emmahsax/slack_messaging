@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Emma Sax"]
   spec.email         = ["emma.sax4@gmail.com"]
   spec.summary       = %q{Sending Personalized Slack Messages}
+  spec.description   = %q{Sending Personalized Slack Messages}
   spec.homepage      = "https://github.com/emmasax1/slack_messaging"
   spec.license       = "MIT"
 
