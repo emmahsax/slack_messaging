@@ -10,7 +10,7 @@ branches:
 
 env:
   global:
-    - CC_TEST_REPORTER=9abbba4824d3bcfbdb673e4c3f55dbf671333685a36c0a6e228bc1b0416c961d
+    - CC_TEST_REPORTER_ID=9abbba4824d3bcfbdb673e4c3f55dbf671333685a36c0a6e228bc1b0416c961d
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
