@@ -1,4 +1,4 @@
-# Slack Messaging [![Build Status](https://travis-ci.org/emma-sax4/slack_messaging.svg?branch=master)](https://travis-ci.org/emma-sax4/slack_messaging) [![Code Climate](https://codeclimate.com/github/emma-sax4/slack_messaging/badges/gpa.svg)](https://codeclimate.com/github/emma-sax4/slack_messaging)
+# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/3ba7d6cc8633165b845a/maintainability)](https://codeclimate.com/github/emma-sax4/slack_messaging/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/3ba7d6cc8633165b845a/test_coverage)](https://codeclimate.com/github/emma-sax4/slack_messaging/test_coverage) [![Build Status](https://travis-ci.org/emma-sax4/slack_messaging.svg?branch=master)](https://travis-ci.org/emma-sax4/slack_messaging)
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
@@ -67,14 +67,6 @@ I hope you enjoy printing fun and specialized messages to Slack!
 ### Tests
 
 To run the tests, run `rspec` from the command line. Travis CI will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. There are currently only tests for the `notify_slack` and `random_message` classes. Feel free to help us add more!
-
-To contribute:
-
-1. Fork it (https://github.com/emma-sax4/slack_messaging/fork)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
 
 ### RubyGems
 To make a new version and push to RubyGems:
