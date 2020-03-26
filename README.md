@@ -1,4 +1,4 @@
-# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/3ba7d6cc8633165b845a/maintainability)](https://codeclimate.com/github/emma-sax4/slack_messaging/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/3ba7d6cc8633165b845a/test_coverage)](https://codeclimate.com/github/emma-sax4/slack_messaging/test_coverage) [![Build Status](https://travis-ci.org/emma-sax4/slack_messaging.svg?branch=master)](https://travis-ci.org/emma-sax4/slack_messaging)
+# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/3ba7d6cc8633165b845a/maintainability)](https://codeclimate.com/github/emma-sax4/slack_messaging/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/3ba7d6cc8633165b845a/test_coverage)](https://codeclimate.com/github/emma-sax4/slack_messaging/test_coverage) [![Build Status](https://travis-ci.com/emma-sax4/slack_messaging.svg?branch=master)](https://travis-ci.com/emma-sax4/slack_messaging)
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
