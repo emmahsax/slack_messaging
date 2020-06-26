@@ -44,7 +44,7 @@ To print a friendly message to Slack, run:
 slack-messaging slack
 ```
 
-from the main directory. Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote, which are all defined in [`lib/slack_messaging/random_message.rb`](https://github.com/emma-sax4/slack_messaging/blob/main/lib/slack_messaging/random_message.rb). Feel free to change the messages or add more to cater what you'd like slack_messaging to say.
+from the main directory. Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote, which are all defined in [`lib/slack_messaging/random_message.rb`](https://github.com/emmasax4/slack_messaging/blob/main/lib/slack_messaging/random_message.rb). Feel free to change the messages or add more to cater what you'd like slack_messaging to say.
 
 However, what if you wanted to print something specific? Well, you can! Just run:
 
@@ -60,7 +60,7 @@ slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
 
 The output of slack_messaging will look something like this:
 
-<img src="https://github.com/emma-sax4/slack_messaging/blob/main/OutputFile.png" width="1000">
+<img src="https://github.com/emmasax4/slack_messaging/blob/main/OutputFile.png" width="1000">
 
 I hope you enjoy printing fun and specialized messages to Slack!
 
