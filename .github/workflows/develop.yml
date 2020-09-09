@@ -1,0 +1,48 @@
+name: Develop
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Out Code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Define Run Variables
+      run: echo "::set-env name=BRANCH::$(echo ${{ github.head_ref }} | sed -E 's|refs/[a-zA-Z]+/||')"
+
+    - name: Switch to Current Branch
+      run: git checkout ${{ env.BRANCH }}
+
+    - name: Configure System
+      run: sudo gem update --system 3.0.8 && sudo gem install bundler -v $(cat Gemfile.lock | tail -1 | tr -d " ")
+
+    - name: Configure Gem Cache
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: bundler-cache-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: bundler-cache-
+
+    - name: Install Gems
+      run: bundle config set path "vendor/bundle" && bundle install
+
+    - name: Set Up Code Climate Test Coverage Reporter
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+
+    - name: Run Rspec Tests
+      run: bundle exec rspec
+
+    - name: Publish Code Climate Test Coverage
+      run: |
+        export GIT_BRANCH="${{ env.BRANCH }}"
+        ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
