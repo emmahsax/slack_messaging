@@ -38,4 +38,4 @@ jobs:
     - name: Publish Code Climate Test Coverage
       run: |
         export GIT_BRANCH="${{ env.BRANCH }}"
-        ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
+        ./cc-test-reporter after-build --exit-code 0 -r ${{secrets.CC_TEST_REPORTER_ID}}
