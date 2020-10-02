@@ -2,7 +2,6 @@ require 'yaml'
 require 'hashie'
 
 module SlackMessaging
-
   class DefaultPaths
     class << self
       def config
@@ -27,22 +26,18 @@ module SlackMessaging
         config
       end
 
-      def config_data
+      private def config_data
         @config_data ||= Hashie::Mash.new
       end
-      private :config_data
 
-      def method_missing(method, args=false)
+      private def method_missing(method, args=false)
         config_data.send(method, args)
       end
-      private :method_missing
 
-      def load_config(file)
+      private def load_config(file)
         raise MissingConfig, "Missing configuration file: #{file}" unless File.exist?(file)
         YAML.load_file(file).each{ |key,value| config_data.assign_property(key, value) }
       end
-      private :load_config
-
     end
   end
 end
