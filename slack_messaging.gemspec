@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
 
   gem.executables   = Dir['bin/*'].map{ |f| File.basename(f) }
   gem.files         = Dir['lib/slack_messaging/*.rb'] + Dir['lib/*.rb'] + Dir['bin/*']
-  gem.files += Dir['[A-Z]*'] + Dir['test/**/*']
+  gem.files         += Dir['[A-Z]*'] + Dir['test/**/*']
   gem.files.reject! { |fn| fn.include? '.gem' }
   gem.test_files    = Dir['spec/spec_helper.rb'] + Dir['spec/slack_messaging/*.rb']
   gem.require_paths = ['lib']
