@@ -1,4 +1,5 @@
-require "slack_messaging"
+require 'spec_helper'
+require 'slack_messaging'
 
 module SlackMessaging
   describe NotifySlack do
@@ -15,7 +16,7 @@ module SlackMessaging
 
     it 'should ping Slack Notifier' do
       notifier = double('notifier', ping: true)
-      allow(Slack::Notifier).to receive(:new).and_return(notifier)
+      allow(::Slack::Notifier).to receive(:new).and_return(notifier)
       expect(notifier).to receive(:ping).and_return(true)
       message = NotifySlack.new("Test message")
       message.perform
@@ -29,6 +30,6 @@ module SlackMessaging
       expect(message.webhook_url).to eq("https://hooks.slack.com/services/totallyrandom/fakewebhookurl")
       expect(message.icon_emoji).to eq(":wine_glass:")
     end
-    
+
   end
 end
