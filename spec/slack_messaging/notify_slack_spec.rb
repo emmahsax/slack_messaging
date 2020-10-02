@@ -30,6 +30,5 @@ module SlackMessaging
       expect(message.webhook_url).to eq("https://hooks.slack.com/services/totallyrandom/fakewebhookurl")
       expect(message.icon_emoji).to eq(":wine_glass:")
     end
-
   end
 end
