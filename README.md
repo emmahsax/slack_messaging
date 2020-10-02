@@ -66,19 +66,25 @@ I hope you enjoy printing fun and specialized messages to Slack!
 
 ### Tests
 
-To run the tests, run `rspec` from the command line. Travis CI will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. There are currently only tests for the `notify_slack` and `random_message` classes. Feel free to help us add more!
+To run the tests, run `bundle exec rspec` from the command line. GitHub Actions will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. Locally, you can also run `bundle exec guard` to automatically run tests as you develop! There are currently only tests for the `notify_slack` and `random_message` classes. Feel free to help us add more!
 
-### RubyGems
-To make a new version and push to RubyGems:
+## Contributing
 
-1. Update the CHANGELOG.markdown with the new version and changes made
+To submit a feature request, bug ticket, etc, please submit an official [GitHub Issue](https://github.com/emmasax4/slack_messaging/issues/new).
 
-3. Run `git add -A && git commit -m "Updating Changelog for [version number]"`
+To report any security vulnerabilities, please view this project's [Security Policy](https://github.com/emmasax4/slack_messaging/security/policy).
 
-2. Update `lib/slack_messaging/version.rb` with the new version number
+This repository does have a standard [Code of Conduct](https://github.com/emmasax4/slack_messaging/blob/main/.github/code_of_conduct.md).
 
-4. Run `git add -A && git commit -m "Version Bump" && git push`
+## Releasing
 
-5. Run `gem build slack_messaging.gemspec && gem push *.gem`
+To make a new release of this gem:
 
-6. Run `rm *.gem`
+1. Merge the pull request via the big green button
+2. Run `git tag vX.X.X` and `git push --tag`
+3. Make a new release [here](https://github.com/emmasax4/slack_messaging/releases/new)
+4. Run `gem build *.gemspec`
+5. Run `gem push *.gem` to push the new gem to RubyGems
+6. Run `rm *.gem` to clean up your local repository
+
+To set up your local machine to push to RubyGems via the API, see the [RubyGems documentation](https://guides.rubygems.org/publishing/#publishing-to-rubygemsorg).
