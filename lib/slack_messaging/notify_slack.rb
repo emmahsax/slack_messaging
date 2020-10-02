@@ -13,13 +13,14 @@ module SlackMessaging
     end
 
     def perform
-      options = {webhook_url: webhook_url,
-                 channel: channel,
-                 username: username,
-                 icon_emoji: icon_emoji,
-                 http_options: {open_timeout: 10}
-                }
-      Slack::Notifier.new(webhook_url, options).ping(text)
+      options = {
+        webhook_url: webhook_url,
+        channel: channel,
+        username: username,
+        icon_emoji: icon_emoji,
+        http_options: { open_timeout: 10 }
+      }
+      ::Slack::Notifier.new(webhook_url, options).ping(text)
     end
   end
 end
