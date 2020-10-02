@@ -24,15 +24,17 @@ This project requires a config file that should look like this:
 
 ```
 slack:
-  channel: "#[AWESOME CHANNEL NAME]"
-  username: [AWESOME USER NAME]
-  webhook_url: [WEBHOOK URL]
-  icon_emoji: ":[SOME EMOJI]:"
+  channel: "#<AWESOME CHANNEL NAME>"
+  username: <AWESOME USER NAME]>
+  webhook_url: <WEBHOOK URL>
+  icon_emoji: ":<SOME EMOJI>:"
 ```
 
 The default is for the file to be named `~/.slack_messaging.yml`, but a different path can be passed in like this:
 
-    $ slack-messaging --config="/PATH/TO/FILE/config.yml" slack
+```
+$ slack-messaging --config="/PATH/TO/FILE/config.yml" slack
+```
 
 To obtain the webhook url, go to [this link](https://api.slack.com/incoming-webhooks).
 
