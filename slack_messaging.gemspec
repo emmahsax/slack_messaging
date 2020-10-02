@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = SlackMessaging::VERSION
   gem.authors       = ["Emma Sax"]
   gem.email         = ["emma.sax4@gmail.com"]
-  gem.summary       = %q{Sending Personalized Slack Messages}
-  gem.description   = %q{Sending Personalized Slack Messages}
+  gem.summary       = %q{Personalized Slack Messages}
+  gem.description   = %q{Sending Personalized Slack Messages to a Slack channel of your choice.}
   gem.homepage      = "https://github.com/emmasax4/slack_messaging"
   gem.license       = "MIT"
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'gli', '~> 2.10'
   gem.add_dependency 'highline', '~> 2.0'
   gem.add_dependency 'slack-notifier', '~> 1.5.1'
-  gem.add_dependency 'rack', '>= 2.1.4'
+  gem.add_dependency 'rack', '~> 2.2'
   gem.add_dependency 'activesupport', '~> 6.0'
 
   gem.add_development_dependency 'bundler', '~> 2.1'
