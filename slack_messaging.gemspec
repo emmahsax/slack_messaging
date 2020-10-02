@@ -1,7 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slack_messaging/version'
+require File.expand_path('../lib/slack_messaging/version.rb', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = "slack_messaging"
@@ -13,17 +10,19 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/emmasax4/slack_messaging"
   gem.license       = "MIT"
 
-  gem.files         = `git ls-files -z`.split("\x0")
-  gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
+  gem.executables   = Dir['bin/*'].map{ |f| File.basename(f) }
+  gem.files         = Dir['lib/slack_messaging/*.rb'] + Dir['lib/*.rb'] + Dir['bin/*']
+  gem.files         += Dir['[A-Z]*'] + Dir['test/**/*']
+  gem.files.reject! { |fn| fn.include? '.gem' }
+  gem.test_files    = Dir['spec/spec_helper.rb'] + Dir['spec/slack_messaging/*.rb']
+  gem.require_paths = ['lib']
 
-  gem.add_dependency 'hashie', '~> 4.1'
-  gem.add_dependency 'gli', '~> 2.10'
-  gem.add_dependency 'highline', '~> 2.0'
-  gem.add_dependency 'slack-notifier', '~> 1.5.1'
-  gem.add_dependency 'rack', '~> 2.2'
   gem.add_dependency 'activesupport', '~> 6.0'
+  gem.add_dependency 'gli', '~> 2.10'
+  gem.add_dependency 'hashie', '~> 4.1'
+  gem.add_dependency 'highline', '~> 2.0'
+  gem.add_dependency 'rack', '~> 2.2'
+  gem.add_dependency 'slack-notifier', '~> 1.5.1'
 
   gem.add_development_dependency 'bundler', '~> 2.1'
   gem.add_development_dependency 'guard-rspec', '~> 4.3'

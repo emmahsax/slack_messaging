@@ -1,8 +1,9 @@
-require "slack_messaging"
+require 'spec_helper'
+require 'slack_messaging'
 
 module SlackMessaging
   describe RandomMessage do
-    
+
     it "should get a string message" do
       message = RandomMessage.new
       expect(message.get_text).to be_instance_of(String)
