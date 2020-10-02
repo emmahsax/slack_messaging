@@ -1,8 +1,5 @@
-require_relative 'slack_messaging/config'
-require_relative 'slack_messaging/output'
-require_relative 'slack_messaging/slack'
-require_relative 'slack_messaging/notify_slack'
-require_relative 'slack_messaging/random_message'
-require_relative 'slack_messaging/version'
+Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), 'slack_messaging')) + "/**/*.rb"].each do |file|
+  require_relative file
+end
 
 module SlackMessaging; end
