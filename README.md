@@ -25,7 +25,7 @@ This project requires a config file that should look like this:
 ```
 slack:
   channel: "#<AWESOME CHANNEL NAME>"
-  username: <AWESOME USER NAME]>
+  username: <AWESOME USER NAME>
   webhook_url: <WEBHOOK URL>
   icon_emoji: ":<SOME EMOJI>:"
 ```
