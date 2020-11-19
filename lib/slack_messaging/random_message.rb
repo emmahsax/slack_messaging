@@ -1,7 +1,5 @@
 module SlackMessaging
   class RandomMessage
-    attr_accessor :text
-
     MESSAGE_ARRAY = [
       "A true friend is someone who thinks that you are a good egg even though he knows that you are slightly cracked.\n--Bernard Meltzer",
       "If you can't make it good, at least make it look good.\n--Bill Gates",
@@ -23,12 +21,10 @@ module SlackMessaging
       "Don't let small minds convince you that your dreams are too big.\n--Anonymous",
     ]
 
+    attr_accessor :text
+
     def initialize
       self.text = MESSAGE_ARRAY[rand(MESSAGE_ARRAY.length)]
-    end
-
-    def get_text
-      return self.text
     end
   end
 end

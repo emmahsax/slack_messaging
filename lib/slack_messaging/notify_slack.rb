@@ -1,5 +1,3 @@
-require 'slack-notifier'
-
 module SlackMessaging
   class NotifySlack
     attr_accessor :text, :channel, :webhook_url, :username, :icon_url, :icon_emoji
@@ -14,13 +12,13 @@ module SlackMessaging
 
     def perform
       options = {
-        webhook_url: webhook_url,
         channel: channel,
         username: username,
         icon_emoji: icon_emoji,
-        http_options: { open_timeout: 10 }
+        text: text
       }
-      ::Slack::Notifier.new(webhook_url, options).ping(text)
+
+      HTTParty.post(webhook_url, body: options.to_json)
     end
   end
 end

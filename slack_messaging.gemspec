@@ -21,10 +21,11 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'gli', '~> 2.10'
   gem.add_dependency 'hashie', '~> 4.1'
   gem.add_dependency 'highline', '~> 2.0'
+  gem.add_dependency 'httparty'
   gem.add_dependency 'rack', '~> 2.2'
-  gem.add_dependency 'slack-notifier', '~> 1.5.1'
 
   gem.add_development_dependency 'bundler', '~> 2.1'
+  gem.add_development_dependency 'faker'
   gem.add_development_dependency 'guard-rspec', '~> 4.3'
   gem.add_development_dependency 'rake', '~> 13.0'
   gem.add_development_dependency 'rspec', '~> 3.9'
