@@ -1,14 +1,14 @@
 require File.expand_path('../lib/slack_messaging/version.rb', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "slack_messaging"
+  gem.name          = 'slack_messaging'
   gem.version       = SlackMessaging::VERSION
-  gem.authors       = ["Emma Sax"]
-  gem.email         = ["emma.sax4@gmail.com"]
+  gem.authors       = ['Emma Sax']
+  gem.email         = ['emma.sax4@gmail.com']
   gem.summary       = %q{Personalized Slack Messages}
   gem.description   = %q{Sending Personalized Slack Messages to a Slack channel of your choice.}
-  gem.homepage      = "https://github.com/emmasax4/slack_messaging"
-  gem.license       = "MIT"
+  gem.homepage      = 'https://github.com/emmasax4/slack_messaging'
+  gem.license       = 'MIT'
 
   gem.executables   = Dir['bin/*'].map{ |f| File.basename(f) }
   gem.files         = Dir['lib/slack_messaging/*.rb'] + Dir['lib/*.rb'] + Dir['bin/*']
@@ -21,10 +21,11 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'gli', '~> 2.10'
   gem.add_dependency 'hashie', '~> 4.1'
   gem.add_dependency 'highline', '~> 2.0'
+  gem.add_dependency 'httparty'
   gem.add_dependency 'rack', '~> 2.2'
-  gem.add_dependency 'slack-notifier', '~> 1.5.1'
 
   gem.add_development_dependency 'bundler', '~> 2.1'
+  gem.add_development_dependency 'faker'
   gem.add_development_dependency 'guard-rspec', '~> 4.3'
   gem.add_development_dependency 'rake', '~> 13.0'
   gem.add_development_dependency 'rspec', '~> 3.9'
