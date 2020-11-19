@@ -12,11 +12,15 @@ gem 'slack_messaging'
 
 And then execute:
 
-    $ bundle
+```bash
+bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install slack_messaging
+```bash
+gem install slack_messaging
+```
 
 ### Usage
 
