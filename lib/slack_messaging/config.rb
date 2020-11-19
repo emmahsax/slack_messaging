@@ -15,7 +15,7 @@ module SlackMessaging
       @config_data ||= Hashie::Mash.new
     end
 
-    def self.method_missing(method, args=false)
+    def self.method_missing(method, args = false)
       config_data.send(method, args)
     end
 
