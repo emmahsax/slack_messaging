@@ -1,14 +1,14 @@
 require File.expand_path('../lib/slack_messaging/version.rb', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "slack_messaging"
+  gem.name          = 'slack_messaging'
   gem.version       = SlackMessaging::VERSION
-  gem.authors       = ["Emma Sax"]
-  gem.email         = ["emma.sax4@gmail.com"]
+  gem.authors       = ['Emma Sax']
+  gem.email         = ['emma.sax4@gmail.com']
   gem.summary       = %q{Personalized Slack Messages}
   gem.description   = %q{Sending Personalized Slack Messages to a Slack channel of your choice.}
-  gem.homepage      = "https://github.com/emmasax4/slack_messaging"
-  gem.license       = "MIT"
+  gem.homepage      = 'https://github.com/emmasax4/slack_messaging'
+  gem.license       = 'MIT'
 
   gem.executables   = Dir['bin/*'].map{ |f| File.basename(f) }
   gem.files         = Dir['lib/slack_messaging/*.rb'] + Dir['lib/*.rb'] + Dir['bin/*']

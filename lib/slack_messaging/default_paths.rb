@@ -7,7 +7,7 @@ module SlackMessaging
     private
 
     def self.home
-      ENV['HOME'] ? ENV['HOME'] : "."
+      ENV['HOME'] ? ENV['HOME'] : '.'
     end
   end
 end

@@ -6,8 +6,8 @@ module SlackMessaging
       self.text = text
       self.channel = SlackMessaging::Config.slack[:channel]
       self.webhook_url = SlackMessaging::Config.slack[:webhook_url]
-      self.username = SlackMessaging::Config.slack[:username] || "MessageMe"
-      self.icon_emoji = SlackMessaging::Config.slack[:icon_emoji] || ":mailbox_with_mail"
+      self.username = SlackMessaging::Config.slack[:username] || 'MessageMe'
+      self.icon_emoji = SlackMessaging::Config.slack[:icon_emoji] || ':mailbox_with_mail'
     end
 
     def perform

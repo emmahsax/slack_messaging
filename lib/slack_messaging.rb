@@ -3,7 +3,7 @@ require 'hashie'
 require 'httparty'
 require 'highline'
 
-Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), 'slack_messaging')) + "/**/*.rb"].each do |file|
+Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), 'slack_messaging')) + '/**/*.rb'].each do |file|
   require_relative file
 end
 

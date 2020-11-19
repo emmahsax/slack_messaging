@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'slack_messaging'
 
-RSpec.describe SlackMessaging::NotifySlack do
+describe SlackMessaging::NotifySlack do
   let(:sentence) { Faker::Lorem.sentence }
   let(:channel) { Faker::Lorem.word }
   let(:username) { Faker::Name.name }
@@ -10,12 +10,12 @@ RSpec.describe SlackMessaging::NotifySlack do
 
   let(:config_file) do
     {
-      "slack": {
-        "slack_option": true,
-        "username": username,
-        "icon_emoji": emoji,
-        "channel": channel,
-        "webhook_url": webhook
+      'slack': {
+        'slack_option': true,
+        'username': username,
+        'icon_emoji': emoji,
+        'channel': channel,
+        'webhook_url': webhook
       }
     }
   end
