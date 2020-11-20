@@ -50,7 +50,7 @@ To print a friendly message to Slack, run:
 slack-messaging slack
 ```
 
-from the main directory. Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote, which are all defined in [`lib/slack_messaging/random_message.rb`](https://github.com/emmasax4/slack_messaging/blob/main/lib/slack_messaging/random_message.rb). Feel free to change the messages or add more to cater what you'd like slack_messaging to say.
+from the main directory. Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote. The random quotes are selected using the [Quotable API](http://api.quotable.io/).
 
 However, what if you wanted to print something specific? Well, you can! Just run:
 
