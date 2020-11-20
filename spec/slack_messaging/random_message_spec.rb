@@ -2,23 +2,42 @@ require 'spec_helper'
 require 'slack_messaging'
 
 describe SlackMessaging::RandomMessage do
+  let(:quote_object) { double(:quote_object, body: quote_json) }
+
+  let(:quote_json) do
+    "{\"_id\":\"4MRaRRKq4Tcg\",
+      \"tags\":[\"famous-quotes\"],
+      \"content\":\"There are two ways of spreading light: to be the candle or the mirror that reflects it.\",
+      \"author\":\"Edith Wharton\",\"length\":87
+    }"
+  end
+
+  before do
+    allow(HTTParty).to receive(:get).and_return(quote_object)
+  end
+
   it 'should get a string message' do
-    message = SlackMessaging::RandomMessage.new
-    expect(message.text).to be_instance_of(String)
+    message = SlackMessaging::RandomMessage.acquire_random_quote
+    expect(message).to be_instance_of(String)
   end
 
-  it 'should get a message greater than 25 characters' do
-    message = SlackMessaging::RandomMessage.new
-    expect(message.text.length).to be >= 50
+  it 'should get a message that includes a newline' do
+    message = SlackMessaging::RandomMessage.acquire_random_quote
+    expect(message.include?("\n")).to eq(true)
   end
 
-  it 'should get a message that includes a new line' do
-    message = SlackMessaging::RandomMessage.new
-    expect(message.text.include?("\n")).to eq(true)
+  it 'should get a message that includes a —' do
+    message = SlackMessaging::RandomMessage.acquire_random_quote
+    expect(message.include?('—')).to eq(true)
   end
 
-  it 'should get a message that includes a --' do
-    message = SlackMessaging::RandomMessage.new
-    expect(message.text.include?('--')).to eq(true)
+  it 'should use HTTParty to ping an API' do
+    expect(HTTParty).to receive(:get)
+    SlackMessaging::RandomMessage.acquire_random_quote
+  end
+
+  it 'should have the JSON parse the response content twice' do
+    expect(JSON).to receive(:parse).at_least(2).times.and_return(JSON.parse(quote_json))
+    SlackMessaging::RandomMessage.acquire_random_quote
   end
 end
