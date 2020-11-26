@@ -28,9 +28,9 @@ This project requires a config file that should look like this:
 
 ```
 slack:
-  channel: "#<AWESOME CHANNEL NAME>"
+  channel: <AWESOME CHANNEL NAME>
   username: <AWESOME USER NAME>
-  webhook_url: <WEBHOOK URL>
+  webhook_url: <SLACK WEBHOOK URL>
   icon_emoji: ":<SOME EMOJI>:"
 ```
 
@@ -66,7 +66,7 @@ slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
 
 The output of slack_messaging will look something like this:
 
-<img src="https://github.com/emmasax4/slack_messaging/blob/main/OutputFile.png" width="1000">
+<img src="https://github.com/emmasax4/slack_messaging/blob/main/QuoteExample.png" width="1000">
 
 I hope you enjoy printing fun and specialized messages to Slack!
 
