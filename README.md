@@ -80,7 +80,7 @@ To submit a feature request, bug ticket, etc, please submit an official [GitHub 
 
 To report any security vulnerabilities, please view this project's [Security Policy](https://github.com/emmasax4/slack_messaging/security/policy).
 
-This repository does have a standard [Code of Conduct](https://github.com/emmasax4/slack_messaging/blob/main/.github/code_of_conduct.md).
+When interacting with this repository, please follow [Contributor Covenant's Code of Conduct](https://contributor-covenant.org).
 
 ## Releasing
 
