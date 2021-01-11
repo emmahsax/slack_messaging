@@ -4,7 +4,6 @@ Gem::Specification.new do |gem|
   gem.name          = 'slack_messaging'
   gem.version       = SlackMessaging::VERSION
   gem.authors       = ['Emma Sax']
-  gem.email         = ['emma.sax4@gmail.com']
   gem.summary       = %q{Personalized Slack Messages}
   gem.description   = %q{Sending Personalized Slack Messages to a Slack channel of your choice.}
   gem.homepage      = 'https://github.com/emmasax4/slack_messaging'
