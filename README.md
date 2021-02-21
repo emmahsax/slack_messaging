@@ -1,4 +1,4 @@
-# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/c74baada70ad96048dc7/maintainability)](https://codeclimate.com/github/emmasax4/slack_messaging/maintainability) ![Default](https://github.com/emmasax4/slack_messaging/workflows/Default/badge.svg)
+# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/c74baada70ad96048dc7/maintainability)](https://codeclimate.com/github/emmahsax/slack_messaging/maintainability) ![Default](https://github.com/emmahsax/slack_messaging/workflows/main.yml/badge.svg)
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
@@ -66,7 +66,7 @@ slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
 
 The output of slack_messaging will look something like this:
 
-<img src="https://github.com/emmasax4/slack_messaging/blob/main/QuoteExample.png" width="500">
+<img src="https://github.com/emmahsax/slack_messaging/blob/main/QuoteExample.png" width="500">
 
 I hope you enjoy printing fun and specialized messages to Slack!
 
@@ -76,9 +76,9 @@ To run the tests, run `bundle exec rspec` from the command line. GitHub Actions 
 
 ## Contributing
 
-To submit a feature request, bug ticket, etc, please submit an official [GitHub Issue](https://github.com/emmasax4/slack_messaging/issues/new).
+To submit a feature request, bug ticket, etc, please submit an official [GitHub Issue](https://github.com/emmahsax/slack_messaging/issues/new).
 
-To report any security vulnerabilities, please view this project's [Security Policy](https://github.com/emmasax4/slack_messaging/security/policy).
+To report any security vulnerabilities, please view this project's [Security Policy](https://github.com/emmahsax/slack_messaging/security/policy).
 
 When interacting with this repository, please follow [Contributor Covenant's Code of Conduct](https://contributor-covenant.org).
 
@@ -88,7 +88,7 @@ To make a new release of this gem:
 
 1. Merge the pull request via the big green button
 2. Run `git tag vX.X.X` and `git push --tag`
-3. Make a new release [here](https://github.com/emmasax4/slack_messaging/releases/new)
+3. Make a new release [here](https://github.com/emmahsax/slack_messaging/releases/new)
 4. Run `gem build *.gemspec`
 5. Run `gem push *.gem` to push the new gem to RubyGems
 6. Run `rm *.gem` to clean up your local repository
