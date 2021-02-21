@@ -1,4 +1,4 @@
-# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/c74baada70ad96048dc7/maintainability)](https://codeclimate.com/github/emmahsax/slack_messaging/maintainability) ![Default](https://github.com/emmahsax/slack_messaging/workflows/main.yml/badge.svg)
+# Slack Messaging [![Maintainability](https://api.codeclimate.com/v1/badges/9aabbea68d6522f4b308/maintainability)](https://codeclimate.com/github/emmahsax/slack_messaging/maintainability) [![Main](https://github.com/emmahsax/slack_messaging/actions/workflows/main.yml/badge.svg)](https://github.com/emmahsax/slack_messaging/actions/workflows/main.yml)
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
