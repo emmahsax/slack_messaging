@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Emma Sax']
   gem.summary       = %q{Personalized Slack Messages}
   gem.description   = %q{Sending Personalized Slack Messages to a Slack channel of your choice.}
-  gem.homepage      = 'https://github.com/emmasax4/slack_messaging'
+  gem.homepage      = 'https://github.com/emmahsax/slack_messaging'
   gem.license       = 'MIT'
 
   gem.executables   = Dir['bin/*'].map{ |f| File.basename(f) }
