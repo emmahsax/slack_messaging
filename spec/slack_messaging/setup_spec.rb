@@ -9,7 +9,7 @@ describe SlackMessaging::Setup do
       channel: Faker::Lorem.word,
       username: Faker::Lorem.word,
       webhook_url: Faker::Internet.url,
-      icon_emoji: "#{Faker::Lorem.word}:"
+      icon_emoji: ":#{Faker::Lorem.word}:"
     }
   end
 
