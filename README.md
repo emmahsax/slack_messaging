@@ -40,6 +40,8 @@ To generate this file at `~/.slack_messaging.yml`, please run this command:
 slack-messaging setup
 ```
 
+To obtain the webhook URL, go to [this link](https://api.slack.com/messaging/webhooks).
+
 If you'd like to create the config file at a different directory, I recommend using the `setup` command, and then manually moving the file to your desired location:
 
 ```bash
@@ -53,8 +55,6 @@ And then you can pass in that specific file location like this:
 ```bash
 slack-messaging --config="/PATH/TO/FILE/config.yml" slack
 ```
-
-To obtain the webhook URL, go to [this link](https://api.slack.com/messaging/webhooks).
 
 Once the config file is set up, the project is ready to go!
 

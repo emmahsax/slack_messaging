@@ -40,7 +40,9 @@ module SlackMessaging
       answers = {}
 
       answers[:webhook_url] = ask_question(
-        "\nWhat is your Slack webhook URL? If you don't have one yet, please navigate to https://api.slack.com/messaging/webhooks to create one, and then come back here and paste it in the Terminal."
+        "\nWhat is your Slack webhook URL? If you don't have one yet, please navigate" \
+        " to https://api.slack.com/messaging/webhooks to create one, and then come back" \
+        " here and paste it in the Terminal."
       )
 
       unless answers[:webhook_url]
