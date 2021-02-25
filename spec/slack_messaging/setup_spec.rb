@@ -15,6 +15,7 @@ describe SlackMessaging::Setup do
 
   before do
     allow(SlackMessaging::HighlineCli).to receive(:new).and_return(highline_cli)
+    allow(subject).to receive(:puts)
   end
 
   after do
