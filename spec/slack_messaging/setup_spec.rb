@@ -49,7 +49,7 @@ describe SlackMessaging::Setup do
     end
   end
 
-  describe '#create_or_update_config_file' do
+  describe '#self.create_or_update_config_file' do
     it 'should generate the file based on the answers to the questions' do
       expect(subject).to receive(:generate_config_file)
       allow(File).to receive(:open).and_return(nil)
@@ -63,13 +63,13 @@ describe SlackMessaging::Setup do
     end
   end
 
-  describe '#generate_config_file' do
+  describe '#self.generate_config_file' do
     it 'returns a string' do
       expect(subject.send(:generate_config_file, answers)).to be_a(String)
     end
   end
 
-  describe '#config_file_exists?' do
+  describe '#self.config_file_exists?' do
     it 'should return true if the file exists' do
       allow(File).to receive(:exists?).and_return(true)
       expect(subject.send(:config_file_exists?)).to eq(true)
@@ -81,7 +81,7 @@ describe SlackMessaging::Setup do
     end
   end
 
-  describe '#ask_question' do
+  describe '#self.ask_question' do
     it 'should use highline to ask a question' do
       expect(highline_cli).to receive(:ask).and_return('')
       subject.send(:ask_question, Faker::Lorem.sentence)
@@ -99,7 +99,7 @@ describe SlackMessaging::Setup do
     end
   end
 
-  describe '#ask_config_questions' do
+  describe '#self.ask_config_questions' do
     it 'should call to ask at least four questions' do
       expect(subject).to receive(:ask_question).at_least(4).times
       subject.send(:ask_config_questions)

@@ -14,6 +14,8 @@ flag [:config], :desc => 'Slack Messaging config file path', :default_value => S
 
 program_long_desc """
 DOCUMENTATION
+    For documentation and help in setting up your configuration files,
+    see Slack Messaging's GitHub repo: https://github.com/emmahsax/slack_messaging
 """
 
 desc 'Prints a variety of messages to Slack'
