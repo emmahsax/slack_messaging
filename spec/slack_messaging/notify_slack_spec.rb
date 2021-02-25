@@ -26,14 +26,16 @@ describe SlackMessaging::NotifySlack do
     SlackMessaging::Config.load(Faker::Lorem.word)
   end
 
+  subject { SlackMessaging::NotifySlack }
+
   it 'should call HTTParty' do
     expect(HTTParty).to receive(:post)
-    message = SlackMessaging::NotifySlack.new(sentence)
+    message = subject.new(sentence)
     message.perform
   end
 
     it 'should define certain values' do
-    message = SlackMessaging::NotifySlack.new(sentence)
+    message = subject.new(sentence)
     expect(message.text).to eq(sentence)
     expect(message.channel).to eq(channel)
     expect(message.username).to eq(username)
