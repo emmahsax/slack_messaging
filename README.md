@@ -26,42 +26,56 @@ gem install slack_messaging
 
 This project requires a config file that should look like this:
 
-```
+```yml
 slack:
   channel: <AWESOME CHANNEL NAME>
   username: <AWESOME USER NAME>
   webhook_url: <SLACK WEBHOOK URL>
-  icon_emoji: ":<SOME EMOJI>:"
+  icon_emoji: ':<SOME EMOJI>:'
 ```
 
-The default is for the file to be named `~/.slack_messaging.yml`, but a different path can be passed in like this:
+To generate this file at `~/.slack_messaging.yml`, please run this command:
 
+```bash
+slack-messaging setup
 ```
-$ slack-messaging --config="/PATH/TO/FILE/config.yml" slack
+
+To obtain the webhook URL, go to [this link](https://api.slack.com/messaging/webhooks).
+
+If you'd like to create the config file at a different directory, I recommend using the `setup` command, and then manually moving the file to your desired location:
+
+```bash
+slack-messaging setup
+# Walk through the prompts to create the file
+mv ~/.slack_messaging.yml /PATH/TO/FILE/config.yml
 ```
 
-To obtain the webhook url, go to [this link](https://api.slack.com/incoming-webhooks).
+And then you can pass in that specific file location like this:
 
-Okay, now the project will be ready to rock and roll.
+```bash
+slack-messaging --config="/PATH/TO/FILE/config.yml" slack
+```
+
+Once the config file is set up, the project is ready to go!
 
 To print a friendly message to Slack, run:
 
-```
+```bash
 slack-messaging slack
 ```
 
-from the main directory. Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote. The random quotes are selected using the [Quotable API](http://api.quotable.io/).
+Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote. The random quotes are selected using the [Quotable API](http://api.quotable.io/).
 
 However, what if you wanted to print something specific? Well, you can! Just run:
 
-```
-slack-messaging slack "MESSAGE 1"
+```bash
+slack-messaging slack 'MESSAGE 1'
 ```
 
 You can even print multiple messages at once:
 
-```
-slack-messaging slack "MESSAGE 1" "MESSAGE 2" "MESSAGE 3" ... "MESSAGE N"
+```bash
+slack-messaging slack 'MESSAGE 1' 'MESSAGE 2' 'MESSAGE 3' ... 'MESSAGE N'
 ```
 
 The output of slack_messaging will look something like this:
