@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'slack_messaging'
 
@@ -23,13 +25,13 @@ describe SlackMessaging::Config do
 
     let(:config_file) do
       {
-        'domain': domain,
-        'slack': {
-          'slack_option': true,
-          'username': Faker::Name.name,
-          'icon_url': Faker::Internet.url,
-          'channel': Faker::Lorem.word,
-          'webhook': Faker::Internet.url
+        domain: domain,
+        slack: {
+          slack_option: true,
+          username: Faker::Name.name,
+          icon_url: Faker::Internet.url,
+          channel: Faker::Lorem.word,
+          webhook: Faker::Internet.url
         }
       }
     end

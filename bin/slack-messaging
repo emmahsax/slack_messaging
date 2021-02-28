@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'gli'
 require_relative '../lib/slack_messaging'
@@ -10,29 +13,29 @@ version SlackMessaging::VERSION
 
 wrap_help_text :verbatim
 
-flag [:config], :desc => 'Slack Messaging config file path', :default_value => SlackMessaging::DefaultPaths.config
+flag [:config], desc: 'Slack Messaging config file path', default_value: SlackMessaging::DefaultPaths.config
 
-program_long_desc """
+program_long_desc "
 DOCUMENTATION
     For documentation and help in setting up your configuration files,
     see Slack Messaging's GitHub repo: https://github.com/emmahsax/slack_messaging
-"""
+"
 
 desc 'Prints a variety of messages to Slack'
 command 'slack' do |c|
-  pre do |global, command, options, args|
+  pre do |global, _command, _options, _args|
     SlackMessaging::Config.load(global[:config])
     true
   end
 
-  c.action do |global_options, options, args|
+  c.action do |_global_options, options, args|
     SlackMessaging::Slack.execute(args, options)
   end
 end
 
 desc 'Sets up a Slack Messaging config file at ~/.slack_messaging.yml'
 command 'setup' do |c|
-  c.action do ||
+  c.action do
     SlackMessaging::Setup.execute
   end
 end

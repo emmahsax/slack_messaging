@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'slack_messaging'
 
@@ -10,7 +12,7 @@ describe SlackMessaging::HighlineCli do
   end
 
   describe '#ask' do
-    it 'should ask the highline client ask'do
+    it 'should ask the highline client ask' do
       expect(highline_client).to receive(:ask)
       subject.ask(Faker::Lorem.sentence)
     end
@@ -21,7 +23,7 @@ describe SlackMessaging::HighlineCli do
   end
 
   describe '#ask_yes_no' do
-    it 'should ask the highline client ask'do
+    it 'should ask the highline client ask' do
       expect(highline_client).to receive(:ask)
       subject.ask_yes_no(Faker::Lorem.sentence)
     end
@@ -37,13 +39,13 @@ describe SlackMessaging::HighlineCli do
   end
 
   describe '#ask_options' do
-    it 'should ask the highline client ask'do
+    it 'should ask the highline client ask' do
       expect(highline_client).to receive(:ask)
-      subject.ask_options(Faker::Lorem.sentence, ['one', 'two', 'three'])
+      subject.ask_options(Faker::Lorem.sentence, %w[one two three])
     end
 
     it 'should return a string from the options' do
-      expect(subject.ask_options(Faker::Lorem.sentence, ['one', 'two', 'three'])).to be_a(String)
+      expect(subject.ask_options(Faker::Lorem.sentence, %w[one two three])).to be_a(String)
     end
   end
 end
