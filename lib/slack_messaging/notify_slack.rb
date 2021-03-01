@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SlackMessaging
   class NotifySlack
     attr_accessor :text, :channel, :webhook_url, :username, :icon_url, :icon_emoji

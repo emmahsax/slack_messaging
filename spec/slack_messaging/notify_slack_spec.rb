@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'slack_messaging'
 
@@ -10,12 +12,12 @@ describe SlackMessaging::NotifySlack do
 
   let(:config_file) do
     {
-      'slack': {
-        'slack_option': true,
-        'username': username,
-        'icon_emoji': emoji,
-        'channel': channel,
-        'webhook_url': webhook
+      slack: {
+        slack_option: true,
+        username: username,
+        icon_emoji: emoji,
+        channel: channel,
+        webhook_url: webhook
       }
     }
   end
@@ -34,7 +36,7 @@ describe SlackMessaging::NotifySlack do
     message.perform
   end
 
-    it 'should define certain values' do
+  it 'should define certain values' do
     message = subject.new(sentence)
     expect(message.text).to eq(sentence)
     expect(message.channel).to eq(channel)
