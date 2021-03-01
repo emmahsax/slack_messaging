@@ -17,7 +17,7 @@ module SlackMessaging
 
     def self.create_or_update_config_file(answers)
       contents = generate_config_file(answers)
-      puts "Creating or updating your #{default_config} file..."
+      puts "\nCreating or updating your #{default_config} file..."
       File.open(default_config, 'w') { |file| file.puts contents }
       puts "\nDone!"
     end
@@ -41,7 +41,7 @@ module SlackMessaging
       answers = {}
 
       answers[:webhook_url] = ask_question(
-        "\nWhat is your Slack webhook URL? If you don't have one yet, please navigate" \
+        "What is your Slack webhook URL? If you don't have one yet, please navigate" \
         ' to https://api.slack.com/messaging/webhooks to create one, and then come back' \
         ' here and paste it in the Terminal.'
       )
