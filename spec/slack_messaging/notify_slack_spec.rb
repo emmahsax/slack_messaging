@@ -28,10 +28,6 @@ describe SlackMessaging::NotifySlack do
     SlackMessaging::Config.load(Faker::Lorem.word)
   end
 
-  it 'should return 2' do
-    expect(1+1).to eq(22)
-  end
-
   subject { SlackMessaging::NotifySlack.new(sentence) }
 
   it 'should call HTTParty' do

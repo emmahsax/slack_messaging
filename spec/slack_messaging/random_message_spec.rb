@@ -18,10 +18,6 @@ describe SlackMessaging::RandomMessage do
     allow(HTTParty).to receive(:get).and_return(quote_object)
   end
 
-  it 'should return 2' do
-    expect(1+1).to eq(22)
-  end
-
   subject { SlackMessaging::RandomMessage }
 
   it 'should get a string message' do
