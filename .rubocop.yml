@@ -52,7 +52,6 @@ Metrics/BlockLength:
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
 
-
 Style/ArgumentsForwarding:
   Enabled: true
 
