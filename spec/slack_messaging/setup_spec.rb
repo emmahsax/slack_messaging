@@ -43,6 +43,10 @@ describe SlackMessaging::Setup do
     #   subject.execute
     # end
 
+    it 'should return 2' do
+      expect(1+1).to eq(22)
+    end
+
     it 'should call to create or update the config file' do
       allow(File).to receive(:exists?).and_return(true)
       allow(highline_cli).to receive(:ask_yes_no).and_return(true)
