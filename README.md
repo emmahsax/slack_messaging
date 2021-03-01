@@ -53,7 +53,7 @@ mv ~/.slack_messaging.yml /PATH/TO/FILE/config.yml
 And then you can pass in that specific file location like this:
 
 ```bash
-slack-messaging --config="/PATH/TO/FILE/config.yml" slack
+slack-messaging --config="/PATH/TO/FILE/config.yml" send
 ```
 
 Once the config file is set up, the project is ready to go!
@@ -61,7 +61,7 @@ Once the config file is set up, the project is ready to go!
 To print a friendly message to Slack, run:
 
 ```bash
-slack-messaging slack
+slack-messaging send
 ```
 
 Here, no specific message is being given to print to Slack, so slack_messaging will choose a random quote. The random quotes are selected using the [Quotable API](http://api.quotable.io/).
@@ -69,13 +69,13 @@ Here, no specific message is being given to print to Slack, so slack_messaging w
 However, what if you wanted to print something specific? Well, you can! Just run:
 
 ```bash
-slack-messaging slack 'MESSAGE 1'
+slack-messaging send 'MESSAGE 1'
 ```
 
 You can even print multiple messages at once:
 
 ```bash
-slack-messaging slack 'MESSAGE 1' 'MESSAGE 2' 'MESSAGE 3' ... 'MESSAGE N'
+slack-messaging send 'MESSAGE 1' 'MESSAGE 2' 'MESSAGE 3' ... 'MESSAGE N'
 ```
 
 The output of slack_messaging will look something like this:
