@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SlackMessaging
   class Config
     def self.config
@@ -9,8 +11,6 @@ module SlackMessaging
       config
     end
 
-    private
-
     def self.config_data
       @config_data ||= Hashie::Mash.new
     end
@@ -21,6 +21,7 @@ module SlackMessaging
 
     def self.load_config(file)
       raise MissingConfig, "Missing configuration file: #{file}" unless File.exist?(file)
+
       YAML.load_file(file).each { |key, value| config_data.assign_property(key, value) }
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'slack_messaging'
 
@@ -19,7 +21,7 @@ describe SlackMessaging::Setup do
   end
 
   after do
-    SlackMessaging::Setup.instance_variable_set("@highline", nil)
+    SlackMessaging::Setup.instance_variable_set('@highline', nil)
   end
 
   subject { SlackMessaging::Setup }
@@ -46,7 +48,7 @@ describe SlackMessaging::Setup do
       allow(highline_cli).to receive(:ask_yes_no).and_return(false)
       expect(subject).not_to receive(:create_or_update_config_file)
       expect(subject).not_to receive(:ask_config_questions)
-      expect{ subject.execute }.to raise_error(SystemExit)
+      expect { subject.execute }.to raise_error(SystemExit)
     end
   end
 
@@ -72,12 +74,12 @@ describe SlackMessaging::Setup do
 
   describe '#self.config_file_exists?' do
     it 'should return true if the file exists' do
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       expect(subject.send(:config_file_exists?)).to eq(true)
     end
 
     it 'should return false if the file does not exist' do
-      allow(File).to receive(:exists?).and_return(false)
+      allow(File).to receive(:exist?).and_return(false)
       expect(subject.send(:config_file_exists?)).to eq(false)
     end
   end
@@ -108,15 +110,15 @@ describe SlackMessaging::Setup do
 
     it 'should exit if the slack URL is not given' do
       allow(subject).to receive(:ask_question).and_return(nil)
-      expect{ subject.send(:ask_config_questions) }.to raise_error(SystemExit)
+      expect { subject.send(:ask_config_questions) }.to raise_error(SystemExit)
     end
 
     it 'should return the defaults if nothing is given' do
       slack_url = Faker::Internet.url
       allow(subject).to receive(:ask_question).with(
         "\nWhat is your Slack webhook URL? If you don't have one yet, please navigate" \
-        " to https://api.slack.com/messaging/webhooks to create one, and then come back" \
-        " here and paste it in the Terminal."
+        ' to https://api.slack.com/messaging/webhooks to create one, and then come back' \
+        ' here and paste it in the Terminal.'
       ).and_return(slack_url)
       allow(subject).to receive(:ask_question).and_return(nil)
       expect(subject.send(:ask_config_questions)).to eq(
@@ -124,7 +126,7 @@ describe SlackMessaging::Setup do
           channel: 'general',
           username: "Let's Get Quoty",
           webhook_url: slack_url,
-          icon_emoji: ":mailbox_with_mail:"
+          icon_emoji: ':mailbox_with_mail:'
         }
       )
     end
