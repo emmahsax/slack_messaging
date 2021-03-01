@@ -94,7 +94,7 @@ describe SlackMessaging::Setup do
 
     it 'should return nil if the highline client gets an empty string' do
       allow(highline_cli).to receive(:ask).and_return('')
-      expect(subject.send(:ask_question, Faker::Lorem.sentence)).to be(1)
+      expect(subject.send(:ask_question, Faker::Lorem.sentence)).to be_nil
     end
 
     it 'should return the answer if it is given' do
