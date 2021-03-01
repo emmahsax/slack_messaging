@@ -123,7 +123,8 @@ describe SlackMessaging::Setup do
         webhook_url: slack_url,
         icon_emoji: ':mailbox_with_mail:'
       }
-      allow(subject).to receive(:ask_question).with("What is your Slack webhook URL? If you don't have one yet, please navigate to https://api.slack.com/messaging/webhooks to create one, and then come back here and paste it in the Terminal."
+      allow(subject).to receive(:ask_question).with(
+        "What is your Slack webhook URL? If you don't have one yet, please navigate to https://api.slack.com/messaging/webhooks to create one, and then come back here and paste it in the Terminal."
       ).and_return(slack_url)
       allow(subject).to receive(:ask_question).with(
         "\nWhat slack channel do you wish to post to? (default is \"#general\")"
