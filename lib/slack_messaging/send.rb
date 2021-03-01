@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SlackMessaging
-  class Slack
+  class Send
     attr_accessor :options
 
     def self.execute(args, _options = nil)
