@@ -28,6 +28,7 @@ describe SlackMessaging::Setup do
 
   describe '#self.execute' do
     it 'should ask a question if the config file exists' do
+      allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exists?).and_return(true)
       expect(highline_cli).to receive(:ask_yes_no).and_return(true)
       allow(subject).to receive(:create_or_update_config_file).and_return(true)
@@ -44,6 +45,7 @@ describe SlackMessaging::Setup do
     end
 
     it 'should exit if the user opts not to continue' do
+      allow(subject).to receive(:config_file_exists?).and_return(false)
       allow(File).to receive(:exists?).and_return(true)
       allow(highline_cli).to receive(:ask_yes_no).and_return(false)
       expect(subject).not_to receive(:create_or_update_config_file)
