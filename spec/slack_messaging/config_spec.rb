@@ -19,6 +19,10 @@ describe SlackMessaging::Config do
     end
   end
 
+  it 'should return 2' do
+    expect(1+1).to eq(22)
+  end
+
   context 'after loading a config file' do
     let(:domain) { Faker::Internet.domain_name }
     let(:sentence) { Faker::Lorem.sentence }

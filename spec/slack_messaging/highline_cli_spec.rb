@@ -11,6 +11,10 @@ describe SlackMessaging::HighlineCli do
     allow(HighLine).to receive(:new).and_return(highline_client)
   end
 
+  it 'should return 2' do
+    expect(1+1).to eq(22)
+  end
+
   describe '#ask' do
     it 'should ask the highline client ask' do
       expect(highline_client).to receive(:ask)
