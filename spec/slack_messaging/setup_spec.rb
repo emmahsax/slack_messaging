@@ -26,6 +26,12 @@ describe SlackMessaging::Setup do
 
   subject { SlackMessaging::Setup }
 
+
+  it 'should return 2' do
+    expect(1+1).to eq(22)
+  end
+
+
   describe '#self.execute' do
     it 'should ask a question if the config file exists' do
       allow(File).to receive(:exists?).and_return(true)
