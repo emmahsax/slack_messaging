@@ -7,19 +7,17 @@ module SlackMessaging
         answer = highline.ask_yes_no(
           "It looks like the #{default_config} file already exists. Do you wish to replace it? (y/n)"
         )
-
-        unless answer
-          puts "\nExiting because you selected to not replace the #{default_config} file..."
-          exit
-        end
+        puts
+      else
+        answer = true
       end
 
-      create_or_update_config_file(ask_config_questions)
+      create_or_update_config_file(ask_config_questions) if answer
     end
 
     def self.create_or_update_config_file(answers)
       contents = generate_config_file(answers)
-      puts "\nCreating or updating your #{default_config} file..."
+      puts "Creating or updating your #{default_config} file..."
       File.open(default_config, 'w') { |file| file.puts contents }
       puts "\nDone!"
     end

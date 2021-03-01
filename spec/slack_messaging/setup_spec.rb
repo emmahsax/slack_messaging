@@ -44,13 +44,13 @@ describe SlackMessaging::Setup do
       subject.execute
     end
 
-    it 'should exit if the user opts not to continue' do
-      allow(subject).to receive(:config_file_exists?).and_return(false)
+    it 'should skip if the user opts not to continue' do
+      allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exists?).and_return(true)
       allow(highline_cli).to receive(:ask_yes_no).and_return(false)
       expect(subject).not_to receive(:create_or_update_config_file)
       expect(subject).not_to receive(:ask_config_questions)
-      expect { subject.execute }.to raise_error(SystemExit)
+      subject.execute
     end
   end
 
