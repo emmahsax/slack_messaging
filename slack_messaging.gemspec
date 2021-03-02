@@ -22,7 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'activesupport', '~> 6.0'
   gem.add_dependency 'gli', '~> 2.10'
   gem.add_dependency 'hashie', '~> 4.1'
-  gem.add_dependency 'highline', '~> 2.0'
+  gem.add_dependency 'highline_wrapper', '~> 0.1.0'
   gem.add_dependency 'httparty', '~> 0.18'
   gem.add_dependency 'json', '~> 2.5'
   gem.add_dependency 'rack', '~> 2.2'
@@ -33,5 +33,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'pry', '~> 0.13'
   gem.add_development_dependency 'rake', '~> 13.0'
   gem.add_development_dependency 'rspec', '~> 3.9'
-  gem.add_development_dependency 'rubocop'
+  gem.add_development_dependency 'rubocop', '~> 1.10'
 end
