@@ -86,7 +86,7 @@ I hope you enjoy printing fun and specialized messages to Slack!
 
 ### Tests
 
-To run the tests, run `bundle exec rspec` from the command line. GitHub Actions will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. Locally, you can also run `bundle exec guard` to automatically run tests as you develop! There are currently only tests for the `notify_slack` and `random_message` classes. Feel free to help us add more!
+To run the tests, run `bundle exec rspec` from the command line. GitHub Actions will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. Locally, you can also run `bundle exec guard` to automatically run tests as you develop!
 
 ## Contributing
 
