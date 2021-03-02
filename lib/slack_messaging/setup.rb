@@ -36,7 +36,7 @@ module SlackMessaging
       File.exist?(default_config)
     end
 
-    # rubocop:disable Metrics/MethodLength:
+    # rubocop:disable Metrics/MethodLength
     def self.ask_config_questions
       answers = {}
 
@@ -64,7 +64,7 @@ module SlackMessaging
     end
     # rubocop:enable Metrics/MethodLength
 
-    # rubocop:disable Metrics/MethodLength:
+    # rubocop:disable Metrics/MethodLength
     def self.ask_question(prompt, required: false)
       answer = highline.ask(prompt)
 
