@@ -36,20 +36,16 @@ module SlackMessaging
       File.exist?(default_config)
     end
 
-    # rubocop:disable Metrics/MethodLength:
+    # rubocop:disable Metrics/MethodLength
     def self.ask_config_questions
       answers = {}
 
       answers[:webhook_url] = ask_question(
         "What is your Slack webhook URL? If you don't have one yet, please navigate" \
         ' to https://api.slack.com/messaging/webhooks to create one, and then come back' \
-        ' here and paste it in the Terminal.'
+        ' here and paste it in the Terminal.',
+        required: true
       )
-
-      unless answers[:webhook_url]
-        puts "\nExiting because Slack webhoook is required..."
-        exit
-      end
 
       answers[:channel] = ask_question(
         "\nWhat slack channel do you wish to post to? (default is \"#general\")"
@@ -68,13 +64,25 @@ module SlackMessaging
     end
     # rubocop:enable Metrics/MethodLength
 
-    def self.ask_question(prompt)
+    # rubocop:disable Metrics/MethodLength
+    def self.ask_question(prompt, required: false)
       answer = highline.ask(prompt)
-      answer.empty? ? nil : answer
+
+      if required
+        if answer.empty?
+          puts "\nThis question is required.\n\n"
+          ask_question(prompt, required: true)
+        else
+          answer
+        end
+      else
+        answer.empty? ? nil : answer
+      end
     end
+    # rubocop:enable Metrics/MethodLength
 
     def self.highline
-      @highline ||= SlackMessaging::HighlineCli.new
+      @highline ||= HighlineWrapper.new
     end
 
     def self.default_config
