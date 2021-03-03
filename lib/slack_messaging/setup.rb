@@ -66,13 +66,10 @@ module SlackMessaging
       end
       # rubocop:enable Metrics/MethodLength
 
-      # rubocop:disable Metrics/MethodLength
       private def ask_question(prompt, required: false)
-        answer = highline.ask(prompt, {required: required})
+        answer = highline.ask(prompt, { required: required })
         answer.empty? ? nil : answer
       end
-      # rubocop:enable Metrics/MethodLength
-
       private def highline
         @highline ||= HighlineWrapper.new
       end
