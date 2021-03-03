@@ -122,13 +122,13 @@ describe SlackMessaging::Setup do
         required: true
       ).and_return(slack_url)
       allow(subject).to receive(:ask_question).with(
-        "\nWhat slack channel do you wish to post to? (default is \"#general\")"
+        'What slack channel do you wish to post to? (default is "#general")'
       ).and_return(nil)
       allow(subject).to receive(:ask_question).with(
-        "\nWhat slack username do you wish to post as? (default is \"Let's Get Quoty\")"
+        "What slack username do you wish to post as? (default is \"Let's Get Quoty\")"
       ).and_return(nil)
       allow(subject).to receive(:ask_question).with(
-        "\nWhat emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is \":mailbox_with_mail:\")"
+        'What emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is ":mailbox_with_mail:")'
       ).and_return(nil)
       expect(subject.send(:ask_config_questions)).to eq(defaults)
     end

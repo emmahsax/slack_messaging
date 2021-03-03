@@ -3,23 +3,24 @@
 module SlackMessaging
   class Setup
     class << self
+      # rubocop:disable Style/ConditionalAssignment
       def execute
         if config_file_exists?
           answer = highline.ask_yes_no(
             "It looks like the #{default_config} file already exists. Do you wish to replace it? (y/n)",
             { required: true }
           )
-          puts
         else
           answer = true
         end
 
         create_or_update_config_file(ask_config_questions) if answer
       end
+      # rubocop:enable Style/ConditionalAssignment
 
       private def create_or_update_config_file(answers)
         contents = generate_config_file(answers)
-        puts "\nCreating or updating your #{default_config} file..."
+        puts "Creating or updating your #{default_config} file..."
         File.open(default_config, 'w') { |file| file.puts contents }
         puts "\nDone!"
       end
@@ -50,15 +51,15 @@ module SlackMessaging
         )
 
         answers[:channel] = ask_question(
-          "\nWhat slack channel do you wish to post to? (default is \"#general\")"
+          'What slack channel do you wish to post to? (default is "#general")'
         ) || 'general'
 
         answers[:username] = ask_question(
-          "\nWhat slack username do you wish to post as? (default is \"Let's Get Quoty\")"
+          "What slack username do you wish to post as? (default is \"Let's Get Quoty\")"
         ) || "Let's Get Quoty"
 
         answers[:icon_emoji] = ask_question(
-          "\nWhat emoji would you like to post with (include the colons at the beginning and end" \
+          'What emoji would you like to post with (include the colons at the beginning and end' \
           ' of the emoji name)? (default is ":mailbox_with_mail:")'
         ) || ':mailbox_with_mail:'
 
