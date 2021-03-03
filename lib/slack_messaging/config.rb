@@ -21,7 +21,7 @@ module SlackMessaging
       end
 
       private def load_config(file)
-        raise MissingConfig, "Missing configuration file: #{file}" unless File.exist?(file)
+        raise StandardError, "Missing configuration file: #{file}" unless File.exist?(file)
 
         YAML.load_file(file).each { |key, value| config_data.assign_property(key, value) }
       end
