@@ -23,7 +23,7 @@ DOCUMENTATION
 
 desc 'Prints a variety of messages to Slack'
 command 'send' do |c|
-  pre do |global, _command, _options, _args|
+  c.pre do |global, _command, _options, _args|
     SlackMessaging::Config.load(global[:config])
     true
   end
