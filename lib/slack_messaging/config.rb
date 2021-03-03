@@ -3,8 +3,8 @@
 module SlackMessaging
   class Config
     class << self
-      private def config
-        config_data.to_hash
+      def method_missing(method, args = false)
+        config_data.send(method, args)
       end
 
       def load(path)
@@ -12,12 +12,12 @@ module SlackMessaging
         config
       end
 
-      private def config_data
-        @config_data ||= Hashie::Mash.new
+      private def config
+        config_data.to_hash
       end
 
-      def method_missing(method, args = false)
-        config_data.send(method, args)
+      private def config_data
+        @config_data ||= Hashie::Mash.new
       end
 
       private def load_config(file)
