@@ -109,25 +109,6 @@ describe SlackMessaging::Setup do
       subject.send(:ask_config_questions)
     end
 
-    it 'should recurse if the slack URL is not given' do
-      allow(highline_wrapper).to receive(:ask).with(
-        "What is your Slack webhook URL? If you don't have one yet, please navigate" \
-        ' to https://api.slack.com/messaging/webhooks to create one, and then come back' \
-        ' here and paste it in the Terminal.'
-      ).and_return('', Faker::Internet.url)
-      allow(highline_wrapper).to receive(:ask).with(
-        "\nWhat slack channel do you wish to post to? (default is \"#general\")"
-      ).and_return('')
-      allow(highline_wrapper).to receive(:ask).with(
-        "\nWhat slack username do you wish to post as? (default is \"Let's Get Quoty\")"
-      ).and_return('')
-      allow(highline_wrapper).to receive(:ask).with(
-        "\nWhat emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is \":mailbox_with_mail:\")"
-      ).and_return('')
-      expect(subject).to receive(:ask_question).at_least(:twice).and_call_original
-      subject.send(:ask_config_questions)
-    end
-
     it 'should return the defaults if nothing is given' do
       slack_url = Faker::Internet.url
       defaults = {
@@ -141,13 +122,13 @@ describe SlackMessaging::Setup do
         required: true
       ).and_return(slack_url)
       allow(subject).to receive(:ask_question).with(
-        "\nWhat slack channel do you wish to post to? (default is \"#general\")"
+        'What slack channel do you wish to post to? (default is "#general")'
       ).and_return(nil)
       allow(subject).to receive(:ask_question).with(
-        "\nWhat slack username do you wish to post as? (default is \"Let's Get Quoty\")"
+        "What slack username do you wish to post as? (default is \"Let's Get Quoty\")"
       ).and_return(nil)
       allow(subject).to receive(:ask_question).with(
-        "\nWhat emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is \":mailbox_with_mail:\")"
+        'What emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is ":mailbox_with_mail:")'
       ).and_return(nil)
       expect(subject.send(:ask_config_questions)).to eq(defaults)
     end
