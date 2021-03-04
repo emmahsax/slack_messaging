@@ -21,19 +21,20 @@ DOCUMENTATION
     see Slack Messaging's GitHub repo: https://github.com/emmahsax/slack_messaging
 "
 
+pre do |global, _command, _options, _args|
+  SlackMessaging::Config.load(global[:config])
+  true
+end
+
 desc 'Prints a variety of messages to Slack'
 command 'send' do |c|
-  pre do |global, _command, _options, _args|
-    SlackMessaging::Config.load(global[:config])
-    true
-  end
-
   c.action do |_global_options, options, args|
     SlackMessaging::Send.execute(args, options)
   end
 end
 
 desc 'Sets up a Slack Messaging config file at ~/.slack_messaging.yml'
+skips_pre
 command 'setup' do |c|
   c.action do
     SlackMessaging::Setup.execute
