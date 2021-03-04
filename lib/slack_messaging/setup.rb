@@ -71,6 +71,7 @@ module SlackMessaging
         answer = highline.ask(prompt, { required: required })
         answer.empty? ? nil : answer
       end
+
       private def highline
         @highline ||= HighlineWrapper.new
       end
