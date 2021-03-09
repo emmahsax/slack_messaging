@@ -22,7 +22,7 @@ module SlackMessaging
         contents = generate_config_file(answers)
         puts "Creating or updating your #{default_config} file..."
         File.open(default_config, 'w') { |file| file.puts contents }
-        puts "\nDone!"
+        puts 'Done!'
       end
 
       private def generate_config_file(answers)
@@ -47,29 +47,32 @@ module SlackMessaging
           "What is your Slack webhook URL? If you don't have one yet, please navigate" \
           ' to https://api.slack.com/messaging/webhooks to create one, and then come back' \
           ' here and paste it in the Terminal.',
+          nil,
           required: true
         )
 
         answers[:channel] = ask_question(
-          'What slack channel do you wish to post to? (default is "#general")'
-        ) || 'general'
+          'What slack channel do you wish to post to? (default is "#general")',
+          '#general'
+        )
 
         answers[:username] = ask_question(
-          "What slack username do you wish to post as? (default is \"Let's Get Quoty\")"
-        ) || "Let's Get Quoty"
+          "What slack username do you wish to post as? (default is \"Let's Get Quoty\")",
+          "Let's Get Quoty"
+        )
 
         answers[:icon_emoji] = ask_question(
           'What emoji would you like to post with (include the colons at the beginning and end' \
-          ' of the emoji name)? (default is ":mailbox_with_mail:")'
-        ) || ':mailbox_with_mail:'
+          ' of the emoji name)? (default is ":mailbox_with_mail:")',
+          ':mailbox_with_mail:'
+        )
 
         answers
       end
       # rubocop:enable Metrics/MethodLength
 
-      private def ask_question(prompt, required: false)
-        answer = highline.ask(prompt, { required: required })
-        answer.empty? ? nil : answer
+      private def ask_question(prompt, default, required: false)
+        highline.ask(prompt, { default: default, required: required })
       end
 
       private def highline
