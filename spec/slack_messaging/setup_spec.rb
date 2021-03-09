@@ -88,18 +88,18 @@ describe SlackMessaging::Setup do
   describe '#self.ask_question' do
     it 'should use highline to ask a question' do
       expect(highline_wrapper).to receive(:ask).and_return('')
-      subject.send(:ask_question, Faker::Lorem.sentence)
+      subject.send(:ask_question, Faker::Lorem.sentence, nil)
     end
 
     it 'should return nil if the highline client gets an empty string' do
-      allow(highline_wrapper).to receive(:ask).and_return('')
-      expect(subject.send(:ask_question, Faker::Lorem.sentence)).to be_nil
+      allow(highline_wrapper).to receive(:ask).and_return(nil)
+      expect(subject.send(:ask_question, Faker::Lorem.sentence, nil)).to be_nil
     end
 
     it 'should return the answer if it is given' do
       answer = Faker::Lorem.sentence
       allow(highline_wrapper).to receive(:ask).and_return(answer)
-      expect(subject.send(:ask_question, Faker::Lorem.sentence)).to be(answer)
+      expect(subject.send(:ask_question, Faker::Lorem.sentence, :default)).to be(answer)
     end
   end
 
@@ -119,17 +119,21 @@ describe SlackMessaging::Setup do
       }
       allow(subject).to receive(:ask_question).with(
         "What is your Slack webhook URL? If you don't have one yet, please navigate to https://api.slack.com/messaging/webhooks to create one, and then come back here and paste it in the Terminal.",
+        nil,
         required: true
       ).and_return(slack_url)
       allow(subject).to receive(:ask_question).with(
-        'What slack channel do you wish to post to? (default is "#general")'
-      ).and_return(nil)
+        'What slack channel do you wish to post to? (default is "#general")',
+        '#general'
+      ).and_return('general')
       allow(subject).to receive(:ask_question).with(
-        "What slack username do you wish to post as? (default is \"Let's Get Quoty\")"
-      ).and_return(nil)
+        "What slack username do you wish to post as? (default is \"Let's Get Quoty\")",
+        "Let's Get Quoty"
+      ).and_return("Let's Get Quoty")
       allow(subject).to receive(:ask_question).with(
-        'What emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is ":mailbox_with_mail:")'
-      ).and_return(nil)
+        'What emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is ":mailbox_with_mail:")',
+        ':mailbox_with_mail:'
+      ).and_return(':mailbox_with_mail:')
       expect(subject.send(:ask_config_questions)).to eq(defaults)
     end
   end
