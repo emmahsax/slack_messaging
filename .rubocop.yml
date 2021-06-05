@@ -1,9 +1,12 @@
 AllCops:
   NewCops: enable
   SuggestExtensions: false
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   Exclude:
     - vendor/**/*
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
