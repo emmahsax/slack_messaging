@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.summary               = 'Personalized Slack Messages'
   gem.description           = 'Sending Personalized Slack Messages to a Slack channel of your choice.'
   gem.homepage              = 'https://github.com/emmahsax/slack_messaging'
-  gem.license               = 'MIT'
+  gem.license               = 'BSD-3-Clause'
   gem.required_ruby_version = '>= 2.4'
 
   gem.executables   = Dir['bin/*'].map { |f| File.basename(f) }
