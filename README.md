@@ -118,4 +118,3 @@ To make a new release of this gem:
 6. Run `rm *.gem` to clean up your local repository
 
 To set up your local machine to push to RubyGems via the API, see the [RubyGems documentation](https://guides.rubygems.org/publishing/#publishing-to-rubygemsorg).
-
