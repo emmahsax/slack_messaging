@@ -22,7 +22,7 @@ Or install it yourself as:
 gem install slack_messaging
 ```
 
-### Usage
+## Usage
 
 This project requires a config file that should look like this:
 
@@ -84,19 +84,29 @@ The output of slack_messaging will look something like this:
 
 I hope you enjoy printing fun and specialized messages to Slack!
 
-### Tests
+## Tests
 
 To run the tests, run `bundle exec rspec` from the command-line. GitHub Actions will also run the tests upon every commit to make sure they're up to date and that everything is working correctly. Locally, you can also run `bundle exec guard` to automatically run tests as you develop!
 
-## Contributing
+---
+
+### Contributing
 
 To submit a feature request, bug ticket, etc, please submit an official [GitHub Issue](https://github.com/emmahsax/slack_messaging/issues/new).
 
-To report any security vulnerabilities, please view this project's [Security Policy](https://github.com/emmahsax/slack_messaging/security/policy).
+### Security Policy
+
+To report any security vulnerabilities, please view this repository's [Security Policy](https://github.com/emmahsax/slack_messaging/security/policy).
+
+### Licensing
+
+For information on licensing, please see [LICENSE.md](https://github.com/emmahsax/slack_messaging/blob/main/LICENSE.md).
+
+### Code of Conduct
 
 When interacting with this repository, please follow [Contributor Covenant's Code of Conduct](https://contributor-covenant.org).
 
-## Releasing
+### Releasing
 
 To make a new release of this gem:
 
