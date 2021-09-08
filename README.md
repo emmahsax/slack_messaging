@@ -1,4 +1,4 @@
-# Slack Messaging [![Main](https://github.com/emmahsax/slack_messaging/actions/workflows/main.yml/badge.svg)](https://github.com/emmahsax/slack_messaging/actions/workflows/main.yml)
+# Slack Messaging
 
 This is a simple project designed to post messages to a given Slack channel as a bot.
 
