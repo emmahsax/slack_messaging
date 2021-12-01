@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.homepage              = 'https://github.com/emmahsax/slack_messaging'
   gem.license               = 'BSD-3-Clause'
   gem.required_ruby_version = '>= 2.4'
+  gem.metadata              = { 'rubygems_mfa_required' => 'true' }
 
   gem.executables   = Dir['bin/*'].map { |f| File.basename(f) }
   gem.files         = Dir['lib/slack_messaging/*.rb'] + Dir['lib/*.rb'] + Dir['bin/*']
