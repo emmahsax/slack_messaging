@@ -8,7 +8,7 @@ module SlackMessaging
       end
 
       private def home
-        ENV['HOME'] || '.'
+        Dir.home || '.'
       end
     end
   end
