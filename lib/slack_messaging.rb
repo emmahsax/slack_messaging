@@ -8,7 +8,7 @@ require 'json'
 
 files = "#{File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), 'slack_messaging'))}/**/*.rb"
 
-Dir[files].each do |file|
+Dir[files].sort.each do |file|
   require_relative file
 end
 
