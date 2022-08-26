@@ -5,19 +5,32 @@ module SlackMessaging
     class << self
       attr_accessor :options
 
-      def execute(args, _options = nil)
+      def execute(args, options)
         if args.empty?
           message = SlackMessaging::RandomMessage.acquire_random_quote
-          print_message(message)
+          distribute_notification(message, options[:service])
         else
           args.each do |arg_message|
-            print_message(arg_message)
+            distribute_notification(arg_message, options[:service])
           end
         end
       end
 
-      private def print_message(message)
-        SlackMessaging::NotifySlack.new(message).perform
+      private def distribute_notification(message, service)
+        if service
+          print_message(message, service)
+        else
+          SlackMessaging::Config.full_config.each { |s, _| print_message(message, s) }
+        end
+      end
+
+      private def print_message(message, service)
+        case service
+        when 'discord'
+          SlackMessaging::NotifyDiscord.new(message).perform
+        when 'slack'
+          SlackMessaging::NotifySlack.new(message).perform
+        end
       end
     end
   end
