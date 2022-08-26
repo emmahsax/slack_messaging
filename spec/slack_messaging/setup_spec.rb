@@ -31,6 +31,7 @@ describe SlackMessaging::Setup do
     it 'should ask a question if the config file exists' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exists?).and_return(true)
+      allow(subject).to receive(:compare_configs).and_return(Faker::Lorem.sentence)
       expect(highline_wrapper).to receive(:ask_yes_no).and_return(true)
       allow(subject).to receive(:create_or_update_config_file).and_return(true)
       allow(subject).to receive(:ask_slack_config_questions).and_return(true)
@@ -40,6 +41,7 @@ describe SlackMessaging::Setup do
     it 'should ask the user which type of config to updatee' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exists?).and_return(true)
+      allow(subject).to receive(:compare_configs).and_return(Faker::Lorem.sentence)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Discord')
       subject.execute
     end
