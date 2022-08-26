@@ -82,6 +82,8 @@ You can even print multiple messages at once:
 slack-messaging send 'MESSAGE 1' 'MESSAGE 2' 'MESSAGE 3' ... 'MESSAGE N'
 ```
 
+> When using special characters in your custom messages, use single quotes instead of double quotes
+
 If your config file contains both Slack and Discord settings, then running a basic `send` command (either passing in a message or not), will notify both Slack and Discord. To specify which service to send a message to, you can pass in a `-s`/`--service` flag:
 
 ```bash
