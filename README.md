@@ -100,11 +100,11 @@ slack-messaging send -s slack 'MESSAGE 1'
 
 The output of a Slack message will look something like this:
 
-<img src="https://github.com/emmahsax/slack_messaging/blob/add_discord_option/message_slack.png" width="500">
+<img src="https://github.com/emmahsax/slack_messaging/blob/main/message_slack.png" width="500">
 
 The output of a Discord message will look something like this:
 
-<img src="https://github.com/emmahsax/slack_messaging/blob/add_discord_option/message_discord.png" width="500">
+<img src="https://github.com/emmahsax/slack_messaging/blob/main/message_discord.png" width="500">
 
 I hope you enjoy printing fun and specialized messages to Slack!
 
