@@ -22,11 +22,15 @@ Or install it yourself as:
 gem install slack_messaging
 ```
 
-## Usage
+## Setup
 
 This project requires a config file that should look like this:
 
 ```yml
+discord:
+  avatar_url: <PUBLIC URL OF AN IMAGE>
+  username: <AWESOME USER NAME>
+  webhook_url: <DISCORD WEBHOOK URL>
 slack:
   channel: <AWESOME CHANNEL NAME>
   username: <AWESOME USER NAME>
@@ -34,13 +38,13 @@ slack:
   icon_emoji: ':<SOME EMOJI>:'
 ```
 
-To generate this file at `~/.slack_messaging.yml`, please run this command:
+A config file can have both Discord and Slack settings, or just one or the other. To easily generate this file at `~/.slack_messaging.yml`, please run this command once for each type of settings:
 
 ```bash
 slack-messaging setup
 ```
 
-To obtain the webhook URL, go to [this link](https://api.slack.com/messaging/webhooks).
+To obtain a Slack webhook URL, follow [these instructions](https://slack.com/help/articles/115005265063-Incoming-webhooks-for-Slack). To obtain a Discord webhook URL, follow [these instructions](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
 
 If you'd like to create the config file at a different directory, I recommend using the `setup` command, and then manually moving the file to your desired location:
 
@@ -50,13 +54,13 @@ slack-messaging setup
 mv ~/.slack_messaging.yml /PATH/TO/FILE/config.yml
 ```
 
-And then you can pass in that specific file location like this:
+And then you can pass in that specific file location using the global `-c`/`--config` flag:
 
 ```bash
 slack-messaging --config="/PATH/TO/FILE/config.yml" send
 ```
 
-Once the config file is set up, the project is ready to go!
+## Usage
 
 To print a friendly message to Slack, run:
 
@@ -78,9 +82,27 @@ You can even print multiple messages at once:
 slack-messaging send 'MESSAGE 1' 'MESSAGE 2' 'MESSAGE 3' ... 'MESSAGE N'
 ```
 
-The output of slack_messaging will look something like this:
+If your config file contains both Slack and Discord settings, then running a basic `send` command (either passing in a message or not), will notify both Slack and Discord. To specify which service to send a message to, you can pass in a `-s`/`--service` flag:
 
-<img src="https://github.com/emmahsax/slack_messaging/blob/main/QuoteExample.png" width="500">
+```bash
+slack-messaging send --service slack
+# OR
+slack-messaging send --service discord
+```
+
+To specify a service _and_ send a message, you can pass both at once:
+
+```bash
+slack-messaging send -s slack 'MESSAGE 1'
+```
+
+The output of a Slack message will look something like this:
+
+<img src="https://github.com/emmahsax/slack_messaging/blob/add_discord_option/message_slack.png" width="500">
+
+The output of a Discord message will look something like this:
+
+<img src="https://github.com/emmahsax/slack_messaging/blob/add_discord_option/message_discord.png" width="500">
 
 I hope you enjoy printing fun and specialized messages to Slack!
 
