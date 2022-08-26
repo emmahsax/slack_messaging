@@ -3,18 +3,16 @@
 require 'spec_helper'
 require 'slack_messaging'
 
-describe SlackMessaging::NotifySlack do
+describe SlackMessaging::NotifyDiscord do
   let(:sentence) { Faker::Lorem.sentence }
-  let(:channel) { Faker::Lorem.word }
   let(:username) { Faker::Name.name }
   let(:webhook) { Faker::Internet.url }
-  let(:emoji) { Faker::Internet.url }
+  let(:avatar) { Faker::Internet.url }
 
   let(:config_file) do
     {
-      slack: {
-        channel: channel,
-        icon_emoji: emoji,
+      discord: {
+        avatar_url: avatar,
         username: username,
         webhook_url: webhook
       }
@@ -27,16 +25,15 @@ describe SlackMessaging::NotifySlack do
     SlackMessaging::Config.load(Faker::Lorem.word)
   end
 
-  subject { SlackMessaging::NotifySlack.new(sentence) }
+  subject { SlackMessaging::NotifyDiscord.new(sentence) }
 
-  it 'should call HTTParty' do
-    expect(HTTParty).to receive(:post)
+  it 'should call cURL via a backtick' do
+    expect(subject).to receive(:`)
     subject.perform
   end
 
   it 'should define certain values' do
-    expect(subject.channel).to eq(channel)
-    expect(subject.icon_emoji).to eq(emoji)
+    expect(subject.avatar_url).to eq(avatar)
     expect(subject.text).to eq(sentence)
     expect(subject.username).to eq(username)
     expect(subject.webhook_url).to eq(webhook)

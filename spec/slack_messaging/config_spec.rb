@@ -27,10 +27,14 @@ describe SlackMessaging::Config do
       {
         domain: domain,
         slack: {
-          slack_option: true,
-          username: Faker::Name.name,
-          icon_url: Faker::Internet.url,
           channel: Faker::Lorem.word,
+          icon_url: Faker::Internet.url,
+          username: Faker::Name.name,
+          webhook: Faker::Internet.url
+        },
+        discord: {
+          avatar_url: Faker::Internet.url,
+          username: Faker::Name.name,
           webhook: Faker::Internet.url
         }
       }
@@ -45,7 +49,9 @@ describe SlackMessaging::Config do
     it 'calling a method corresponding to a key in the file should return the value' do
       expect(subject.domain).to eql(domain)
       expect(subject.slack).to be_kind_of(Hash)
-      expect(subject.slack[:slack_option]).to eql(true)
+      expect(subject.discord).to be_kind_of(Hash)
+      expect(subject.slack[:channel]).to be_kind_of(String)
+      expect(subject.discord[:avatar_url]).to be_kind_of(String)
     end
 
     it 'overwriting values should work' do

@@ -9,10 +9,10 @@ module SlackMessaging
 
       def load(path)
         load_config(path)
-        config
+        full_config
       end
 
-      private def config
+      def full_config
         config_data.to_hash
       end
 

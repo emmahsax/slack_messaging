@@ -13,7 +13,7 @@ version SlackMessaging::VERSION
 
 wrap_help_text :verbatim
 
-flag [:config], desc: 'Slack Messaging config file path', default_value: SlackMessaging::DefaultPaths.config
+flag %i[c config], desc: 'Slack Messaging config file path', default_value: SlackMessaging::DefaultPaths.config
 
 program_long_desc "
 DOCUMENTATION
@@ -28,6 +28,10 @@ end
 
 desc 'Prints a variety of messages to Slack'
 command 'send' do |c|
+  c.desc "The service ('slack' or 'discord') that you wish to notify - if none is given, Slack Messaging will " \
+         'notify each service present in the config file'
+  c.flag %i[s service]
+
   c.action do |_global_options, options, args|
     SlackMessaging::Send.execute(args, options)
   end
