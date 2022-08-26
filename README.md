@@ -38,7 +38,7 @@ slack:
   icon_emoji: ':<SOME EMOJI>:'
 ```
 
-A config file can have both Discord and Slack settings, or just one or the other. To easily generate this file at `~/.slack_messaging.yml`, please run this command once for each type of settings:
+A config file can have both Discord and Slack settings, or just one or the other. To easily generate this file at `~/.slack_messaging.yml`, please run this command once for each setting type:
 
 ```bash
 slack-messaging setup
@@ -90,7 +90,7 @@ slack-messaging send --service slack
 slack-messaging send --service discord
 ```
 
-To specify a service _and_ send a message, you can pass both at once:
+To specify a service _and_ send a customized message, you can pass both at once:
 
 ```bash
 slack-messaging send -s slack 'MESSAGE 1'

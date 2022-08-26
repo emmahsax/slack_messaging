@@ -6,7 +6,7 @@ module SlackMessaging
 
     def initialize(text)
       self.channel = SlackMessaging::Config.slack[:channel] || 'general'
-      self.icon_emoji = SlackMessaging::Config.slack[:icon_emoji] || ':robot_face'
+      self.icon_emoji = SlackMessaging::Config.slack[:icon_emoji] || ':robot_face:'
       self.text = text
       self.username = SlackMessaging::Config.slack[:username] || 'Slack Messaging'
       self.webhook_url = SlackMessaging::Config.slack[:webhook_url]

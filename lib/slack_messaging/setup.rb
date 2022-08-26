@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'pry'
-
+# rubocop:disable Metrics/ClassLength
 module SlackMessaging
   class Setup
     class << self
+      # rubocop:disable Metrics/MethodLength
       # rubocop:disable Style/ConditionalAssignment
       def execute
         if config_file_exists?
@@ -20,7 +20,7 @@ module SlackMessaging
 
         type = highline.ask_multiple_choice(
           'Which type of config do you wish to create/update?',
-          %w(Discord Slack),
+          %w[Discord Slack],
           required: true
         )[:value]
 
@@ -33,6 +33,7 @@ module SlackMessaging
 
         create_or_update_config_file(file_contents)
       end
+      # rubocop:enable Metrics/MethodLength
       # rubocop:enable Style/ConditionalAssignment
 
       private def create_or_update_config_file(contents)
@@ -81,9 +82,9 @@ module SlackMessaging
         answers = {}
 
         answers[:webhook_url] = ask_question(
-          "What is your Discord webhook URL? If you don't have one yet, please navigate" \
-          ' to https://discord.com/channels/@me to create one for your server, and then come back' \
-          ' here and paste it in the Terminal.',
+          "What is your Discord webhook URL? If you don't have one yet, please navigate " \
+          'to https://discord.com/channels/@me to create one for your server, and then come back ' \
+          'here and paste it in the Terminal.',
           nil,
           required: true
         )
@@ -105,9 +106,9 @@ module SlackMessaging
         answers = {}
 
         answers[:webhook_url] = ask_question(
-          "What is your Slack webhook URL? If you don't have one yet, please navigate" \
-          ' to https://api.slack.com/messaging/webhooks to create one, and then come back' \
-          ' here and paste it in the Terminal.',
+          "What is your Slack webhook URL? If you don't have one yet, please navigate " \
+          'to https://api.slack.com/messaging/webhooks to create one, and then come back ' \
+          'here and paste it in the Terminal.',
           nil,
           required: true
         )
@@ -123,8 +124,8 @@ module SlackMessaging
         )
 
         answers[:icon_emoji] = ask_question(
-          'What emoji would you like to post with (include the colons at the beginning and end' \
-          ' of the emoji name)? (default is ":robot_face:")',
+          'What emoji would you like to post with (include the colons at the beginning and end ' \
+          'of the emoji name)? (default is ":robot_face:")',
           ':robot_face:'
         )
 
@@ -146,3 +147,4 @@ module SlackMessaging
     end
   end
 end
+# rubocop:enable Metrics/ClassLength

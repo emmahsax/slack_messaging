@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'slack_messaging'
 
 describe SlackMessaging::Setup do
-  let(:highline_wrapper) { double(:highline_wrapper, ask: Faker::Lorem.word, ask_yes_no: true, ask_multiple_choice: {value: 'Discord'}) }
+  let(:highline_wrapper) { double(:highline_wrapper, ask: Faker::Lorem.word, ask_yes_no: true, ask_multiple_choice: { value: 'Discord' }) }
 
   let(:answers) do
     {
@@ -183,7 +183,7 @@ describe SlackMessaging::Setup do
       slack_url = Faker::Internet.url
       defaults = {
         channel: 'general',
-        username: "Slack Messaging",
+        username: 'Slack Messaging',
         webhook_url: slack_url,
         icon_emoji: ':robot_face:'
       }
@@ -197,9 +197,9 @@ describe SlackMessaging::Setup do
         '#general'
       ).and_return('general')
       allow(subject).to receive(:ask_question).with(
-        "What Slack username do you wish to post as? (default is \"Slack Messaging\")",
-        "Slack Messaging"
-      ).and_return("Slack Messaging")
+        'What Slack username do you wish to post as? (default is "Slack Messaging")',
+        'Slack Messaging'
+      ).and_return('Slack Messaging')
       allow(subject).to receive(:ask_question).with(
         'What emoji would you like to post with (include the colons at the beginning and end of the emoji name)? (default is ":robot_face:")',
         ':robot_face:'
@@ -217,7 +217,7 @@ describe SlackMessaging::Setup do
     it 'should return the defaults if nothing is given' do
       discord_url = Faker::Internet.url
       defaults = {
-        username: "Slack Messaging",
+        username: 'Slack Messaging',
         webhook_url: discord_url,
         avatar_url: 'https://i.imgur.com/9ZTbiSF.jpg'
       }
@@ -228,8 +228,8 @@ describe SlackMessaging::Setup do
       ).and_return(discord_url)
       allow(subject).to receive(:ask_question).with(
         'What Discord username do you wish to post as? (default is "Slack Messaging")',
-        "Slack Messaging"
-      ).and_return("Slack Messaging")
+        'Slack Messaging'
+      ).and_return('Slack Messaging')
       allow(subject).to receive(:ask_question).with(
         'What avatar URL would you like to post with? (default is "https://i.imgur.com/9ZTbiSF.jpg")',
         'https://i.imgur.com/9ZTbiSF.jpg'
