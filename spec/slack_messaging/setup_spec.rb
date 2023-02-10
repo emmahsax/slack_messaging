@@ -41,6 +41,7 @@ describe SlackMessaging::Setup do
     it 'should ask the user which type of config to updatee' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exist?).and_return(true)
+      allow(File).to receive(:open).and_return(nil)
       allow(subject).to receive(:compare_configs).and_return(Faker::Lorem.sentence)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Discord')
       subject.execute
@@ -49,6 +50,7 @@ describe SlackMessaging::Setup do
     it 'should call to generate the discord config file if discord is selected' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exist?).and_return(true)
+      allow(File).to receive(:open).and_return(nil)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Discord')
       expect(subject).to receive(:generate_discord_config_file)
       subject.execute
@@ -57,6 +59,7 @@ describe SlackMessaging::Setup do
     it 'should call to generate the slack config file if slack is selected' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
       allow(File).to receive(:exist?).and_return(true)
+      allow(File).to receive(:open).and_return(nil)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Slack')
       expect(subject).to receive(:generate_slack_config_file)
       subject.execute
