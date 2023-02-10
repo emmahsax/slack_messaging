@@ -30,7 +30,7 @@ describe SlackMessaging::Setup do
   describe '#self.execute' do
     it 'should ask a question if the config file exists' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       allow(subject).to receive(:compare_configs).and_return(Faker::Lorem.sentence)
       expect(highline_wrapper).to receive(:ask_yes_no).and_return(true)
       allow(subject).to receive(:create_or_update_config_file).and_return(true)
@@ -40,7 +40,7 @@ describe SlackMessaging::Setup do
 
     it 'should ask the user which type of config to updatee' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       allow(subject).to receive(:compare_configs).and_return(Faker::Lorem.sentence)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Discord')
       subject.execute
@@ -48,7 +48,7 @@ describe SlackMessaging::Setup do
 
     it 'should call to generate the discord config file if discord is selected' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Discord')
       expect(subject).to receive(:generate_discord_config_file)
       subject.execute
@@ -56,14 +56,14 @@ describe SlackMessaging::Setup do
 
     it 'should call to generate the slack config file if slack is selected' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       expect(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Slack')
       expect(subject).to receive(:generate_slack_config_file)
       subject.execute
     end
 
     it 'should call to create or update the config file' do
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       allow(highline_wrapper).to receive(:ask_yes_no).and_return(true)
       allow(highline_wrapper).to receive(:ask_multiple_choice).and_return(value: 'Slack')
       allow(subject).to receive(:generate_slack_config_file).and_return(Faker::Lorem.sentence)
@@ -74,7 +74,7 @@ describe SlackMessaging::Setup do
 
     it 'should skip if the user opts not to continue' do
       allow(subject).to receive(:config_file_exists?).and_return(true)
-      allow(File).to receive(:exists?).and_return(true)
+      allow(File).to receive(:exist?).and_return(true)
       allow(highline_wrapper).to receive(:ask_yes_no).and_return(false)
       expect(subject).not_to receive(:create_or_update_config_file)
       expect(subject).not_to receive(:ask_slack_config_questions)
