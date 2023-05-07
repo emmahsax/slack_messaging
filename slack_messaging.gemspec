@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'gli', '~> 2.10'
   gem.add_dependency 'hashie', '>= 4.1', '<= 5'
   gem.add_dependency 'highline_wrapper', '~> 1.1'
-  gem.add_dependency 'httparty', '~> 0.18'
+  gem.add_dependency 'httparty', '~> 0.21'
   gem.add_dependency 'json', '~> 2.5'
 
   gem.add_development_dependency 'bundler', '~> 2.2'
