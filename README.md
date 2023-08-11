@@ -1,6 +1,6 @@
 # Slack Messaging
 
-This is a simple project designed to post messages to a given Slack channel as a bot.
+This is a simple project designed to post messages to a given Slack or Discord channel as a bot.
 
 ## Installation
 
